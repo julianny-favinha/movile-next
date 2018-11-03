@@ -1,2 +1,3 @@
-# movile-next
-iOS development @ Movile Next
+# Movile Next
+
+iOS development @ Movile

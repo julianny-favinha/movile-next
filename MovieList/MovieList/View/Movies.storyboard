@@ -11,19 +11,66 @@
         <!--Movies-->
         <scene sceneID="llW-lo-hZs">
             <objects>
-                <tableViewController id="m68-f0-xZq" sceneMemberID="viewController">
+                <tableViewController id="m68-f0-xZq" customClass="MoviesTableViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y8w-sS-PNR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2VF-8G-jcN">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="159" id="2VF-8G-jcN" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="159"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2VF-8G-jcN" id="OBO-5G-0Lv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="158.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-NP-ex4">
+                                            <rect key="frame" x="16" y="10" width="90" height="120"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="120" id="240-sP-byP"/>
+                                                <constraint firstAttribute="width" secondItem="wmc-NP-ex4" secondAttribute="height" multiplier="3:4" id="teb-Bb-eBi"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-LV-0EA">
+                                            <rect key="frame" x="40" y="130" width="42" height="18.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-em-oyF">
+                                            <rect key="frame" x="111" y="10" width="225" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYP-Pk-oy3">
+                                            <rect key="frame" x="111" y="33" width="225" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="top" secondItem="wmc-NP-ex4" secondAttribute="bottom" id="7Vc-y0-4vm"/>
+                                        <constraint firstItem="wmc-NP-ex4" firstAttribute="top" secondItem="OBO-5G-0Lv" secondAttribute="top" constant="10" id="CaB-xU-o6s"/>
+                                        <constraint firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" constant="5" id="K2B-wa-5Ve"/>
+                                        <constraint firstItem="ioE-em-oyF" firstAttribute="leading" secondItem="wmc-NP-ex4" secondAttribute="trailing" constant="5" id="Oes-uC-7GK"/>
+                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="centerX" secondItem="wmc-NP-ex4" secondAttribute="centerX" id="PjY-zB-fNN"/>
+                                        <constraint firstItem="ioE-em-oyF" firstAttribute="top" secondItem="wmc-NP-ex4" secondAttribute="top" id="TaU-31-cXq"/>
+                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="top" secondItem="ioE-em-oyF" secondAttribute="bottom" constant="2" id="YlW-RG-Glg"/>
+                                        <constraint firstAttribute="bottom" secondItem="6SZ-LV-0EA" secondAttribute="bottom" constant="10" id="Yt1-GN-zUs"/>
+                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="6SZ-LV-0EA" secondAttribute="bottom" id="azg-B9-QdU"/>
+                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" id="hqY-7e-exv"/>
+                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="leading" secondItem="ioE-em-oyF" secondAttribute="leading" id="lO4-xy-wu7"/>
+                                        <constraint firstItem="wmc-NP-ex4" firstAttribute="leading" secondItem="OBO-5G-0Lv" secondAttribute="leading" constant="16" id="ry5-Sl-hE1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="oYP-Pk-oy3" id="gvh-x5-6uI"/>
+                                    <outlet property="nameLabel" destination="ioE-em-oyF" id="mpR-7o-97Y"/>
+                                    <outlet property="posterImageView" destination="wmc-NP-ex4" id="SjK-jp-ewT"/>
+                                    <outlet property="ratingLabel" destination="6SZ-LV-0EA" id="n5R-dB-Qys"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -20,47 +20,47 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="149" id="2VF-8G-jcN" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="149"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2VF-8G-jcN" id="OBO-5G-0Lv">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2VF-8G-jcN" id="OBO-5G-0Lv">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="148.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-NP-ex4" customClass="ShadowView" customModule="MovieList" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="10" width="90" height="120"/>
+                                            <rect key="frame" x="16" y="10" width="96.5" height="128.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="120" id="240-sP-byP"/>
+                                                <constraint firstAttribute="height" constant="128.5" id="85P-ec-PC7"/>
                                                 <constraint firstAttribute="width" secondItem="wmc-NP-ex4" secondAttribute="height" multiplier="3:4" id="teb-Bb-eBi"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-LV-0EA">
-                                            <rect key="frame" x="116" y="69.5" width="220" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-em-oyF">
-                                            <rect key="frame" x="116" y="10" width="220" height="23"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIA-Eq-IYU">
-                                            <rect key="frame" x="116" y="41" width="220" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-kf-RIr">
+                                            <rect key="frame" x="122.5" y="10" width="218.5" height="128.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-em-oyF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="218.5" height="46"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIA-Eq-IYU">
+                                                    <rect key="frame" x="0.0" y="46" width="218.5" height="41.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-LV-0EA">
+                                                    <rect key="frame" x="0.0" y="87.5" width="218.5" height="41"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="JIA-Eq-IYU" firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" id="B2F-ij-XVJ"/>
+                                        <constraint firstItem="Dt0-kf-RIr" firstAttribute="leading" secondItem="wmc-NP-ex4" secondAttribute="trailing" constant="10" id="8kw-Nj-40n"/>
+                                        <constraint firstItem="Dt0-kf-RIr" firstAttribute="height" secondItem="wmc-NP-ex4" secondAttribute="height" id="93X-rw-nPG"/>
                                         <constraint firstItem="wmc-NP-ex4" firstAttribute="top" secondItem="OBO-5G-0Lv" secondAttribute="top" constant="10" id="CaB-xU-o6s"/>
-                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" id="EVh-5h-cUN"/>
-                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="leading" secondItem="JIA-Eq-IYU" secondAttribute="leading" id="EZM-Iz-MBl"/>
-                                        <constraint firstItem="JIA-Eq-IYU" firstAttribute="leading" secondItem="ioE-em-oyF" secondAttribute="leading" id="JlJ-b5-pK4"/>
-                                        <constraint firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" constant="5" id="K2B-wa-5Ve"/>
-                                        <constraint firstItem="ioE-em-oyF" firstAttribute="leading" secondItem="wmc-NP-ex4" secondAttribute="trailing" constant="10" id="Oes-uC-7GK"/>
-                                        <constraint firstItem="JIA-Eq-IYU" firstAttribute="top" secondItem="ioE-em-oyF" secondAttribute="bottom" constant="8" id="TO9-e8-ngj"/>
-                                        <constraint firstItem="ioE-em-oyF" firstAttribute="top" secondItem="wmc-NP-ex4" secondAttribute="top" id="TaU-31-cXq"/>
-                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="top" secondItem="JIA-Eq-IYU" secondAttribute="bottom" constant="8" id="jwV-Fh-NNU"/>
+                                        <constraint firstItem="Dt0-kf-RIr" firstAttribute="centerY" secondItem="wmc-NP-ex4" secondAttribute="centerY" id="YvL-js-ZrD"/>
+                                        <constraint firstAttribute="trailing" secondItem="Dt0-kf-RIr" secondAttribute="trailing" id="muX-xm-Tzj"/>
                                         <constraint firstItem="wmc-NP-ex4" firstAttribute="leading" secondItem="OBO-5G-0Lv" secondAttribute="leading" constant="16" id="ry5-Sl-hE1"/>
                                         <constraint firstAttribute="bottom" secondItem="wmc-NP-ex4" secondAttribute="bottom" constant="10" id="xBC-iP-6pr"/>
                                     </constraints>

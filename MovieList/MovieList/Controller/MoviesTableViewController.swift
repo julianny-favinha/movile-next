@@ -44,6 +44,11 @@ class MoviesTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: pass movie data through segue
+        performSegue(withIdentifier: "MovieDetailSegue", sender: self)
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

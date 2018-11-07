@@ -10,11 +10,12 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController {
 
-    var movies: [String] = ["M1", "M2", "M3"]
-    var descriptions: [String] = ["Lorem ipsum dolor n", "2", "3"]
+    var movies: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        loadMovies()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -22,6 +23,22 @@ class MoviesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+
+    // MARK: Methods
+
+    private func loadMovies() {
+        guard let movieData = NSDataAsset(name: "movies")?.data else { return }
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        do {
+            movies = try decoder.decode([Movie].self, from: movieData)
+            tableView.reloadData()
+        } catch {
+            print(error)
+        }
+    }
+
+    // MARK: IBActions
 
     @IBAction func editPressed(_ sender: UIBarButtonItem) {
         tableView.setEditing(!tableView.isEditing, animated: true)
@@ -34,11 +51,6 @@ class MoviesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return movies.count
     }
@@ -47,8 +59,7 @@ class MoviesTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
             as? MovieTableViewCell else { return UITableViewCell() }
 
-        cell.nameLabel.text = movies[indexPath.row]
-        cell.descriptionLabel.text = descriptions[indexPath.row]
+        cell.prepareCell(with: movies[indexPath.row])
 
         return cell
     }

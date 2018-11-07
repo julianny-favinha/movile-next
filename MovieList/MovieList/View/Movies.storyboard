@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="159" id="2VF-8G-jcN" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="159"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="149" id="2VF-8G-jcN" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="149"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2VF-8G-jcN" id="OBO-5G-0Lv">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="158.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2VF-8G-jcN" id="OBO-5G-0Lv">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="148.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-NP-ex4">
@@ -36,45 +36,45 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-LV-0EA">
-                                            <rect key="frame" x="40" y="130" width="42" height="18.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-LV-0EA">
+                                            <rect key="frame" x="111" y="74" width="225" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-em-oyF">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-em-oyF">
                                             <rect key="frame" x="111" y="10" width="225" height="23"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYP-Pk-oy3">
-                                            <rect key="frame" x="111" y="35" width="225" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIA-Eq-IYU">
+                                            <rect key="frame" x="111" y="43" width="225" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="top" secondItem="wmc-NP-ex4" secondAttribute="bottom" id="7Vc-y0-4vm"/>
+                                        <constraint firstItem="JIA-Eq-IYU" firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" id="B2F-ij-XVJ"/>
                                         <constraint firstItem="wmc-NP-ex4" firstAttribute="top" secondItem="OBO-5G-0Lv" secondAttribute="top" constant="10" id="CaB-xU-o6s"/>
+                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" id="EVh-5h-cUN"/>
                                         <constraint firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" constant="5" id="K2B-wa-5Ve"/>
                                         <constraint firstItem="ioE-em-oyF" firstAttribute="leading" secondItem="wmc-NP-ex4" secondAttribute="trailing" constant="5" id="Oes-uC-7GK"/>
-                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="centerX" secondItem="wmc-NP-ex4" secondAttribute="centerX" id="PjY-zB-fNN"/>
+                                        <constraint firstItem="JIA-Eq-IYU" firstAttribute="top" secondItem="ioE-em-oyF" secondAttribute="bottom" constant="10" id="R0g-iv-q0B"/>
                                         <constraint firstItem="ioE-em-oyF" firstAttribute="top" secondItem="wmc-NP-ex4" secondAttribute="top" id="TaU-31-cXq"/>
-                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="top" secondItem="ioE-em-oyF" secondAttribute="bottom" constant="2" id="YlW-RG-Glg"/>
-                                        <constraint firstAttribute="bottom" secondItem="6SZ-LV-0EA" secondAttribute="bottom" constant="10" id="Yt1-GN-zUs"/>
-                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="6SZ-LV-0EA" secondAttribute="bottom" id="azg-B9-QdU"/>
-                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="trailing" secondItem="ioE-em-oyF" secondAttribute="trailing" id="hqY-7e-exv"/>
-                                        <constraint firstItem="oYP-Pk-oy3" firstAttribute="leading" secondItem="ioE-em-oyF" secondAttribute="leading" id="lO4-xy-wu7"/>
+                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="leading" secondItem="JIA-Eq-IYU" secondAttribute="leading" id="kla-Yw-2y1"/>
+                                        <constraint firstItem="6SZ-LV-0EA" firstAttribute="top" secondItem="JIA-Eq-IYU" secondAttribute="bottom" constant="10" id="nun-oq-83q"/>
                                         <constraint firstItem="wmc-NP-ex4" firstAttribute="leading" secondItem="OBO-5G-0Lv" secondAttribute="leading" constant="16" id="ry5-Sl-hE1"/>
+                                        <constraint firstItem="JIA-Eq-IYU" firstAttribute="leading" secondItem="ioE-em-oyF" secondAttribute="leading" id="wAd-UW-pTg"/>
+                                        <constraint firstAttribute="bottom" secondItem="wmc-NP-ex4" secondAttribute="bottom" constant="10" id="xBC-iP-6pr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="oYP-Pk-oy3" id="gvh-x5-6uI"/>
-                                    <outlet property="nameLabel" destination="ioE-em-oyF" id="mpR-7o-97Y"/>
+                                    <outlet property="durationLabel" destination="JIA-Eq-IYU" id="bLc-yu-i47"/>
                                     <outlet property="posterImageView" destination="wmc-NP-ex4" id="SjK-jp-ewT"/>
                                     <outlet property="ratingLabel" destination="6SZ-LV-0EA" id="n5R-dB-Qys"/>
+                                    <outlet property="titleLabel" destination="ioE-em-oyF" id="mpR-7o-97Y"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

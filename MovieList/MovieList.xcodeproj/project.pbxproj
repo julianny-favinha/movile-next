@@ -11,6 +11,7 @@
 		B1AB03D621932F2200D1B5E4 /* NewMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB03D521932F2200D1B5E4 /* NewMovieViewController.swift */; };
 		B1AB03D821932F3300D1B5E4 /* NewMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AB03D721932F3300D1B5E4 /* NewMovie.storyboard */; };
 		B1AB03DA2193300200D1B5E4 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AB03D92193300200D1B5E4 /* MovieDetail.storyboard */; };
+		B1AB03DC219339B300D1B5E4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB03DB219339B300D1B5E4 /* Movie.swift */; };
 		B1D688812190B7E6004FFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D688802190B7E6004FFD10 /* AppDelegate.swift */; };
 		B1D688882190B7E8004FFD10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D688872190B7E8004FFD10 /* Assets.xcassets */; };
 		B1D6888B2190B7E8004FFD10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D688892190B7E8004FFD10 /* LaunchScreen.storyboard */; };
@@ -28,6 +29,7 @@
 		B1AB03D521932F2200D1B5E4 /* NewMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMovieViewController.swift; sourceTree = "<group>"; };
 		B1AB03D721932F3300D1B5E4 /* NewMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewMovie.storyboard; sourceTree = "<group>"; };
 		B1AB03D92193300200D1B5E4 /* MovieDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
+		B1AB03DB219339B300D1B5E4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		B1D6887D2190B7E6004FFD10 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D688802190B7E6004FFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D688872190B7E8004FFD10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		B1D72A1421922F6F0094BB0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B1AB03DB219339B300D1B5E4 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				B1D72A222192326F0094BB0A /* MoviesTableViewController.swift in Sources */,
 				B1D688812190B7E6004FFD10 /* AppDelegate.swift in Sources */,
 				B1D72A25219232DB0094BB0A /* MovieTableViewCell.swift in Sources */,
+				B1AB03DC219339B300D1B5E4 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

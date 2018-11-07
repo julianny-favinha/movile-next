@@ -11,19 +11,26 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
 
-        // Configure the view for the selected state
+    func prepareCell(with movie: Movie) {
+        titleLabel.text = movie.title
+        if let imageName = movie.image,
+            let image = UIImage(named: imageName + "small") {
+            posterImageView.image = image
+        }
+        durationLabel.text = movie.duration
+        ratingLabel.text = "⭐️ \(movie.rating ?? 0.0)"
     }
 
 }

@@ -84,6 +84,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movies" id="erQ-Bb-Z9r">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="yye-Li-W4v">
+                            <connections>
+                                <action selector="editPressed:" destination="m68-f0-xZq" id="7d9-F8-6Tr"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8K1-aC-qYn">
                             <connections>
                                 <segue destination="cLT-WA-tZu" kind="showDetail" identifier="NewMovieSegue" id="z7S-6f-0wE"/>

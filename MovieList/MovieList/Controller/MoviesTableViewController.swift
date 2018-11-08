@@ -66,6 +66,25 @@ class MoviesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if movies.count == 0 {
+            tableViewEmptyMessage()
+            return 0
+        }
+
+        return 1
+    }
+
+    func tableViewEmptyMessage() {
+        let rect: CGRect = CGRect(origin: CGPoint(x: 0, y: 0), size: self.view.bounds.size)
+        let messageLabel: UILabel = UILabel(frame: rect)
+        messageLabel.text = "Sem filmes!"
+        messageLabel.textAlignment = .center
+
+        tableView.backgroundView = messageLabel
+        tableView.separatorStyle = .none
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return movies.count
     }

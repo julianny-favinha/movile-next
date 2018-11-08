@@ -26,7 +26,21 @@ class NewMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setDurationPickerViewData()
+        setDurationPickerView()
+    }
+
+    func setDurationPickerView() {
+        var hours: [Int] = []
+        for value in 0..<11 {
+            hours.append(value)
+        }
+
+        var minutes: [Int] = []
+        for value in 0..<60 {
+            minutes.append(value)
+        }
+
+        durationComponents = [hours, minutes]
 
         let labelWidth = durationPickerView.frame.width / CGFloat(durationPickerView.numberOfComponents)
 
@@ -43,20 +57,6 @@ class NewMovieViewController: UIViewController {
         }
     }
 
-    func setDurationPickerViewData() {
-        var hours: [Int] = []
-        for value in 0..<11 {
-            hours.append(value)
-        }
-
-        var minutes: [Int] = []
-        for value in 0..<60 {
-            minutes.append(value)
-        }
-
-        durationComponents = [hours, minutes]
-    }
-
     // MARK: IBActions
 
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
@@ -64,7 +64,7 @@ class NewMovieViewController: UIViewController {
     }
 
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        // TODO: save movie
+        // TODO: save
         self.dismiss(animated: true, completion: nil)
     }
 

@@ -78,8 +78,9 @@ class MoviesTableViewController: UITableViewController {
     func tableViewEmptyMessage() {
         let rect: CGRect = CGRect(origin: CGPoint(x: 0, y: 0), size: self.view.bounds.size)
         let messageLabel: UILabel = UILabel(frame: rect)
-        messageLabel.text = "Sem filmes!"
+        messageLabel.text = "You don't have any movies yet. \nStart creating one in the + button above!"
         messageLabel.textAlignment = .center
+        messageLabel.numberOfLines = 0
 
         tableView.backgroundView = messageLabel
         tableView.separatorStyle = .none

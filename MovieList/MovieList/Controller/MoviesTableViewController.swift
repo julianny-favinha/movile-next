@@ -42,6 +42,10 @@ class MoviesTableViewController: UITableViewController {
         do {
             movies = try decoder.decode([Movie].self, from: movieData)
             tableView.reloadData()
+
+            if movies.count > 0 {
+                navigationItem.leftBarButtonItem?.isEnabled = true
+            }
         } catch {
             print(error)
         }
@@ -84,6 +88,8 @@ class MoviesTableViewController: UITableViewController {
 
         tableView.backgroundView = messageLabel
         tableView.separatorStyle = .none
+
+        navigationItem.leftBarButtonItem?.isEnabled = false
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

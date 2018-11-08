@@ -11,6 +11,7 @@ import UIKit
 class MoviesTableViewController: UITableViewController {
 
     var movies: [Movie] = []
+    var selectedMovie: Movie?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,14 @@ class MoviesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.setValue(false, forKey: "hidesShadow")
+        self.navigationController?.navigationBar.barTintColor = nil
+    }
+
     // MARK: Methods
 
     private func loadMovies() {
@@ -35,6 +44,12 @@ class MoviesTableViewController: UITableViewController {
             tableView.reloadData()
         } catch {
             print(error)
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? MovieDetailViewController {
+            destination.movie = selectedMovie
         }
     }
 
@@ -65,7 +80,7 @@ class MoviesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: pass movie data through segue
+        selectedMovie = movies[indexPath.row]
         performSegue(withIdentifier: "MovieDetailSegue", sender: self)
     }
 

@@ -158,8 +158,6 @@ class NewMovieViewController: UIViewController {
             missingTitleImageView.isHidden = false
         }
         
-        let duration = (durationPickerView.selectedRow(inComponent: 0), durationPickerView.selectedRow(inComponent: 1))
-        
         var rating: Double!
         if let ratingString = ratingTexField.text,
             let ratingSelected = Double(ratingString.replacingOccurrences(of: ",", with: ".")) {
@@ -182,7 +180,8 @@ class NewMovieViewController: UIViewController {
             missingTitleImageView.isHidden {
             MoviesServices.movies.append(Movie(title: title,
                                            categories: categoriesString,
-                                           duration: "\(duration.0)h \(duration.1)min",
+                                           duration: "\(durationPickerView.selectedRow(inComponent: 0))h " +
+                                                        "\(durationPickerView.selectedRow(inComponent: 1))min",
                                            rating: rating,
                                            summary: descriptionTextView.text,
                                            image: image,
@@ -190,6 +189,11 @@ class NewMovieViewController: UIViewController {
                                            items: nil))
 
             self.dismiss(animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Wait!", message: "Some fields must be completed",
+                                          preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 

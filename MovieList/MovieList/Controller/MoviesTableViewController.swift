@@ -16,7 +16,7 @@ class MoviesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadMovies()
+        movies = MoviesServices.loadMovies()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,22 +34,6 @@ class MoviesTableViewController: UITableViewController {
     }
 
     // MARK: Methods
-
-    private func loadMovies() {
-        guard let movieData = NSDataAsset(name: "movies")?.data else { return }
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        do {
-            movies = try decoder.decode([Movie].self, from: movieData)
-            tableView.reloadData()
-
-            if movies.count > 0 {
-                navigationItem.leftBarButtonItem?.isEnabled = true
-            }
-        } catch {
-            print(error)
-        }
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MovieDetailViewController {

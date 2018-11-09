@@ -13,6 +13,8 @@ class MoviesTableViewController: UITableViewController {
     var movies: [Movie] = []
     var selectedMovie: Movie?
 
+    var releases: [Movie] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -81,12 +83,31 @@ class MoviesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-            as? MovieTableViewCell else { return UITableViewCell() }
+        guard let itemType = movies[indexPath.row].itemType else { return UITableViewCell() }
 
-        cell.prepareCell(with: movies[indexPath.row])
+        switch itemType {
+        case .list:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReleaseTableCell", for: indexPath)
+                as? ReleaseTableViewCell else { return UITableViewCell() }
 
-        return cell
+            if let items = movies[indexPath.row].items {
+                releases = items
+            }
+
+            cell.collectionView.dataSource = self
+            cell.collectionView.delegate = self
+
+            cell.collectionView.reloadData()
+
+            return cell
+        case .movie:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableCell", for: indexPath)
+                as? MovieTableViewCell else { return UITableViewCell() }
+
+            cell.prepareCell(with: movies[indexPath.row])
+
+            return cell
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -99,6 +120,17 @@ class MoviesTableViewController: UITableViewController {
 //        // Return false if you do not want the specified item to be editable.
 //        return true
 //    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let itemType = movies[indexPath.row].itemType else { return false }
+
+        switch itemType {
+        case .list:
+            return false
+        case .movie:
+            return true
+        }
+    }
 
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
@@ -127,5 +159,25 @@ class MoviesTableViewController: UITableViewController {
         return true
     }
     */
+
+}
+
+extension MoviesTableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return releases.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReleaseCollectionCell",
+                                                            for: indexPath)
+            as? ReleaseCollectionViewCell else { return UICollectionViewCell() }
+
+        cell.prepareCell(with: releases[indexPath.row])
+
+        return cell
+    }
 
 }

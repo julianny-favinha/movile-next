@@ -16,7 +16,9 @@ class NewMovieViewController: UIViewController {
     @IBOutlet weak var durationPickerView: UIPickerView!
     @IBOutlet weak var ratingTexField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var categoriesTextField: UITextField!
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    @IBOutlet weak var heightCollectionViewConstraint: NSLayoutConstraint!
 
     var durationComponents: [[Int]] = []
 
@@ -24,13 +26,25 @@ class NewMovieViewController: UIViewController {
 
     var selectedImage: UIImage?
 
+    var categories: [Category] = [Category(type: CategoryType.action),
+                                  Category(type: CategoryType.anime),
+                                  Category(type: CategoryType.child),
+                                  Category(type: CategoryType.comedy),
+                                  Category(type: CategoryType.drama),
+                                  Category(type: CategoryType.horror),
+                                  Category(type: CategoryType.musical),
+                                  Category(type: CategoryType.romance),
+                                  Category(type: CategoryType.scientificFiction),
+                                  Category(type: CategoryType.thriller)]
+    var selectedCategories: [Category] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setDurationPickerView()
 
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tap)
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        self.view.addGestureRecognizer(tap)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +59,8 @@ class NewMovieViewController: UIViewController {
                                                selector: #selector(keyboardWillHide(notification:)),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
+
+        configCollectionView()
     }
 
     deinit {
@@ -53,9 +69,19 @@ class NewMovieViewController: UIViewController {
 
     // MARK: - Methods
 
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
+    func configCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+
+        // change height of collection view to show all cells
+        let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
+        heightCollectionViewConstraint.constant = height
+        self.view.setNeedsLayout()
     }
+
+//    @objc func dismissKeyboard() {
+//        self.view.endEditing(true)
+//    }
 
     func setDurationPickerView() {
         var hours: [Int] = []
@@ -99,7 +125,7 @@ class NewMovieViewController: UIViewController {
         scrollView.scrollIndicatorInsets.bottom = 0
     }
 
-    // MARK: IBActions
+    // MARK: - IBActions
 
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -136,6 +162,8 @@ extension NewMovieViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 }
 
+// MARK: - Extensions
+
 extension NewMovieViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController,
@@ -158,6 +186,44 @@ extension NewMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+}
+
+extension NewMovieViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionCell",
+                                                            for: indexPath)
+            as? CategoryCollectionViewCell else { return UICollectionViewCell() }
+
+        cell.prepareCell(category: categories[indexPath.row])
+        cell.isUserInteractionEnabled = true
+
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        categories[indexPath.row].selected = categories[indexPath.row].selected ? false : true
+
+        if categories[indexPath.row].selected == false {
+            if let index = self.selectedCategories.index(where: { element in
+                return categories[indexPath.row].title == element.title
+            }) {
+                self.selectedCategories.remove(at: index)
+            }
+        } else {
+            self.selectedCategories.append(categories[indexPath.row])
+        }
+
+        print("selectedCategories: \(self.selectedCategories)")
+
+        collectionView.reloadItems(at: [indexPath])
     }
 
 }

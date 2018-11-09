@@ -18,8 +18,6 @@ class MoviesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movies = MoviesServices.loadMovies()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,6 +27,13 @@ class MoviesTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        movies = MoviesServices.movies
+
+        if movies.count > 0 {
+            navigationItem.leftBarButtonItem?.isEnabled = true
+        }
+        tableView.reloadData()
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.setValue(false, forKey: "hidesShadow")

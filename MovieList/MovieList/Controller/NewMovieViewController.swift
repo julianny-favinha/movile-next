@@ -13,11 +13,14 @@ class NewMovieViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var missingTitleImageView: UIImageView!
     @IBOutlet weak var durationPickerView: UIPickerView!
     @IBOutlet weak var ratingTexField: UITextField!
+    @IBOutlet weak var missingRatingImageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var missingCategoriesImageView: UIImageView!
+    
     @IBOutlet weak var heightCollectionViewConstraint: NSLayoutConstraint!
 
     var durationComponents: [[Int]] = []
@@ -40,6 +43,10 @@ class NewMovieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.missingTitleImageView.isHidden = true
+        self.missingRatingImageView.isHidden = true
+        self.missingCategoriesImageView.isHidden = true
 
         setDurationPickerView()
 
@@ -132,8 +139,58 @@ class NewMovieViewController: UIViewController {
     }
 
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        // TODO: save
-        self.dismiss(animated: true, completion: nil)
+        var image: String!
+        if let selectedImage = selectedImage {
+            image = UUID().uuidString
+        } else {
+            image = "placeholder"
+        }
+        
+        var title: String!
+        if let titleSelected = titleTextField.text {
+            if titleSelected.isEmpty {
+                missingTitleImageView.isHidden = false
+            } else {
+                title = titleSelected
+                missingTitleImageView.isHidden = true
+            }
+        } else {
+            missingTitleImageView.isHidden = false
+        }
+        
+        let duration = (durationPickerView.selectedRow(inComponent: 0), durationPickerView.selectedRow(inComponent: 1))
+        
+        var rating: Double!
+        if let ratingString = ratingTexField.text,
+            let ratingSelected = Double(ratingString.replacingOccurrences(of: ",", with: ".")) {
+            rating = ratingSelected
+            missingRatingImageView.isHidden = true
+        } else {
+            missingRatingImageView.isHidden = false
+        }
+        
+        var categoriesString: [String] = []
+        if selectedCategories.isEmpty {
+            missingCategoriesImageView.isHidden = false
+        } else {
+            missingCategoriesImageView.isHidden = true
+            categoriesString = selectedCategories.map { String($0.title) }
+        }
+        
+        if missingCategoriesImageView.isHidden &&
+            missingRatingImageView.isHidden &&
+            missingTitleImageView.isHidden {
+            MoviesServices.movies.append(Movie(title: title,
+                                           categories: categoriesString,
+                                           duration: "\(duration.0)h \(duration.1)min",
+                                           rating: rating,
+                                           summary: descriptionTextView.text,
+                                           image: image,
+                                           itemType: ItemType.movie,
+                                           items: nil))
+
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     @IBAction func chooseImagePressed(_ sender: UIButton) {

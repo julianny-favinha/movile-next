@@ -9,14 +9,14 @@
 import Foundation
 
 struct Movie: Codable {
-    let title: String
-    let categories: [String]?
-    let duration: String?
-    let rating: Double?
-    let summary: String?
-    let image: String?
-    let itemType: ItemType?
-    let items: [Movie]?
+    var title: String
+    var categories: [String]?
+    var duration: String?
+    var rating: Double?
+    var summary: String?
+    var image: String?
+    var itemType: ItemType?
+    var items: [Movie]?
 
     enum CodingKeys: String, CodingKey {
         case title

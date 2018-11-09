@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class MoviesServices {
+    static var movies: [Movie] = loadMovies()
+    
     static func loadMovies() -> [Movie] {
         var movies: [Movie] = []
 

@@ -28,6 +28,8 @@ class MovieTableViewCell: UITableViewCell {
         if let imageName = movie.image,
             let image = UIImage(named: imageName + "small") {
             posterImageView.image = image
+        } else {
+            posterImageView.image = #imageLiteral(resourceName: "placeholder")
         }
         durationLabel.text = movie.duration
         ratingLabel.text = "⭐️ \(movie.rating ?? 0.0)"

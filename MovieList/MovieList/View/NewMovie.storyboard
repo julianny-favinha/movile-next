@@ -50,13 +50,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSu-JB-CBj">
-                                                <rect key="frame" x="8" y="340" width="359" height="24"/>
+                                                <rect key="frame" x="8" y="340" width="41.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="is-missing" translatesAutoresizingMaskIntoConstraints="NO" id="fp3-GC-7Oj" userLabel="Missing Title">
+                                                <rect key="frame" x="59.5" y="343.5" width="81" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="17" id="ywl-ES-P5V"/>
+                                                </constraints>
+                                            </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdl-bh-rxU" userLabel="Title Text Field">
-                                                <rect key="frame" x="8" y="369" width="359" height="30"/>
+                                                <rect key="frame" x="8" y="369" width="352" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -65,26 +71,32 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLS-Bc-v9a">
-                                                <rect key="frame" x="8" y="419" width="359" height="24"/>
+                                                <rect key="frame" x="8" y="419" width="81.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvf-oG-XZg">
-                                                <rect key="frame" x="24" y="448" width="327" height="216"/>
+                                                <rect key="frame" x="24" y="448" width="320" height="216"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="J7E-bo-wsg" id="2hl-JX-e8W"/>
                                                     <outlet property="delegate" destination="J7E-bo-wsg" id="g1T-zk-NtH"/>
                                                 </connections>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umq-tl-Wdo">
-                                                <rect key="frame" x="8" y="684" width="359" height="24"/>
+                                                <rect key="frame" x="8" y="684" width="61.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="is-missing" translatesAutoresizingMaskIntoConstraints="NO" id="lj0-ew-S0D" userLabel="Missing Rating">
+                                                <rect key="frame" x="79.5" y="687.5" width="81" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="17" id="5Ck-Ag-ajg"/>
+                                                </constraints>
+                                            </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bba-ft-jUv" userLabel="Rating Text Field">
-                                                <rect key="frame" x="8" y="713" width="359" height="30"/>
+                                                <rect key="frame" x="8" y="713" width="352" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -93,13 +105,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKa-Or-175">
-                                                <rect key="frame" x="8" y="763" width="359" height="24"/>
+                                                <rect key="frame" x="8" y="763" width="109.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="swj-QU-v1c" userLabel="Description Text View">
-                                                <rect key="frame" x="8" y="792" width="359" height="100"/>
+                                                <rect key="frame" x="8" y="792" width="352" height="100"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="45j-TL-1Ze"/>
@@ -108,13 +120,19 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChY-Wo-e0v">
-                                                <rect key="frame" x="8" y="921" width="359" height="24"/>
+                                                <rect key="frame" x="8" y="921" width="104" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="is-missing" translatesAutoresizingMaskIntoConstraints="NO" id="ac9-I2-SXk" userLabel="Missing Categories">
+                                                <rect key="frame" x="122" y="924.5" width="81" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="17" id="cxu-NC-q65"/>
+                                                </constraints>
+                                            </imageView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JP3-dh-bpE">
-                                                <rect key="frame" x="8" y="953" width="359" height="200"/>
+                                                <rect key="frame" x="8" y="953" width="352" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="750" constant="200" id="9zm-x0-d4l"/>
@@ -168,31 +186,31 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="aSu-JB-CBj" secondAttribute="trailing" constant="8" id="1jZ-l1-rP8"/>
+                                            <constraint firstItem="ac9-I2-SXk" firstAttribute="centerY" secondItem="ChY-Wo-e0v" secondAttribute="centerY" id="2Fi-6p-5br"/>
+                                            <constraint firstItem="lj0-ew-S0D" firstAttribute="leading" secondItem="umq-tl-Wdo" secondAttribute="trailing" constant="10" id="3gW-gO-mbB"/>
+                                            <constraint firstItem="aSu-JB-CBj" firstAttribute="centerY" secondItem="fp3-GC-7Oj" secondAttribute="centerY" id="3ys-6s-uBg"/>
                                             <constraint firstItem="tLS-Bc-v9a" firstAttribute="leading" secondItem="aSu-JB-CBj" secondAttribute="leading" id="5Kx-37-hpA"/>
-                                            <constraint firstItem="tLS-Bc-v9a" firstAttribute="trailing" secondItem="aSu-JB-CBj" secondAttribute="trailing" id="6eW-qK-em1"/>
                                             <constraint firstItem="kKa-Or-175" firstAttribute="leading" secondItem="umq-tl-Wdo" secondAttribute="leading" id="7S3-za-yQi"/>
                                             <constraint firstItem="rvf-oG-XZg" firstAttribute="trailing" secondItem="vdl-bh-rxU" secondAttribute="trailing" constant="-16" id="8AR-fK-lQK"/>
                                             <constraint firstItem="rvf-oG-XZg" firstAttribute="top" secondItem="tLS-Bc-v9a" secondAttribute="bottom" constant="5" id="BVi-Ek-ymV"/>
                                             <constraint firstItem="swj-QU-v1c" firstAttribute="top" secondItem="kKa-Or-175" secondAttribute="bottom" constant="5" id="Bfk-Bm-7tX"/>
+                                            <constraint firstItem="lj0-ew-S0D" firstAttribute="centerY" secondItem="umq-tl-Wdo" secondAttribute="centerY" id="By5-X2-Z1l"/>
                                             <constraint firstItem="ChY-Wo-e0v" firstAttribute="top" secondItem="swj-QU-v1c" secondAttribute="bottom" constant="29" id="C2t-wt-FDB"/>
                                             <constraint firstItem="rvf-oG-XZg" firstAttribute="leading" secondItem="vdl-bh-rxU" secondAttribute="leading" constant="16" id="CP8-Xs-tBm"/>
                                             <constraint firstItem="JP3-dh-bpE" firstAttribute="top" secondItem="ChY-Wo-e0v" secondAttribute="bottom" constant="8" id="Dvr-nH-Dxu"/>
                                             <constraint firstItem="umq-tl-Wdo" firstAttribute="leading" secondItem="tLS-Bc-v9a" secondAttribute="leading" id="EgW-Yw-qRR"/>
                                             <constraint firstItem="umq-tl-Wdo" firstAttribute="top" secondItem="rvf-oG-XZg" secondAttribute="bottom" constant="20" id="EsE-Aw-RIF"/>
-                                            <constraint firstItem="kKa-Or-175" firstAttribute="trailing" secondItem="umq-tl-Wdo" secondAttribute="trailing" id="HDW-sR-iDZ"/>
-                                            <constraint firstItem="ChY-Wo-e0v" firstAttribute="trailing" secondItem="kKa-Or-175" secondAttribute="trailing" id="I2w-s4-t0k"/>
                                             <constraint firstItem="JP3-dh-bpE" firstAttribute="trailing" secondItem="swj-QU-v1c" secondAttribute="trailing" id="Ijg-ON-fdO"/>
                                             <constraint firstItem="ePx-Y0-d61" firstAttribute="top" secondItem="Os5-EZ-gZQ" secondAttribute="top" constant="20" id="JCY-0j-cc6"/>
                                             <constraint firstItem="bba-ft-jUv" firstAttribute="leading" secondItem="vdl-bh-rxU" secondAttribute="leading" id="MCF-uU-JW9"/>
                                             <constraint firstItem="aSu-JB-CBj" firstAttribute="leading" secondItem="Os5-EZ-gZQ" secondAttribute="leading" constant="8" id="NJd-PF-9xb"/>
+                                            <constraint firstItem="fp3-GC-7Oj" firstAttribute="leading" secondItem="aSu-JB-CBj" secondAttribute="trailing" constant="10" id="PXz-2u-eWE"/>
                                             <constraint firstItem="bba-ft-jUv" firstAttribute="trailing" secondItem="vdl-bh-rxU" secondAttribute="trailing" id="VMc-Ab-ku4"/>
                                             <constraint firstItem="kKa-Or-175" firstAttribute="top" secondItem="bba-ft-jUv" secondAttribute="bottom" constant="20" id="VbU-Lm-k4T"/>
                                             <constraint firstItem="bba-ft-jUv" firstAttribute="top" secondItem="umq-tl-Wdo" secondAttribute="bottom" constant="5" id="Vif-Iz-xlW"/>
                                             <constraint firstItem="vdl-bh-rxU" firstAttribute="leading" secondItem="aSu-JB-CBj" secondAttribute="leading" id="Vm5-4l-mNM"/>
                                             <constraint firstAttribute="trailing" secondItem="ePx-Y0-d61" secondAttribute="trailing" constant="16" id="asm-GU-3Un"/>
-                                            <constraint firstItem="umq-tl-Wdo" firstAttribute="trailing" secondItem="tLS-Bc-v9a" secondAttribute="trailing" id="ayS-Wb-UmA"/>
-                                            <constraint firstItem="vdl-bh-rxU" firstAttribute="trailing" secondItem="aSu-JB-CBj" secondAttribute="trailing" id="hil-OA-qil"/>
+                                            <constraint firstItem="ac9-I2-SXk" firstAttribute="leading" secondItem="ChY-Wo-e0v" secondAttribute="trailing" constant="10" id="hrk-uV-HAD"/>
                                             <constraint firstItem="vdl-bh-rxU" firstAttribute="top" secondItem="aSu-JB-CBj" secondAttribute="bottom" constant="5" id="iSk-Ht-ApE"/>
                                             <constraint firstItem="swj-QU-v1c" firstAttribute="trailing" secondItem="bba-ft-jUv" secondAttribute="trailing" id="iWA-Qa-YR6"/>
                                             <constraint firstItem="ePx-Y0-d61" firstAttribute="bottom" secondItem="aSu-JB-CBj" secondAttribute="top" constant="-20" id="mDI-wH-cBY"/>
@@ -243,6 +261,9 @@
                         <outlet property="durationPickerView" destination="rvf-oG-XZg" id="dEk-0S-1GG"/>
                         <outlet property="heightCollectionViewConstraint" destination="9zm-x0-d4l" id="nJi-zp-CCw"/>
                         <outlet property="imageButton" destination="ePx-Y0-d61" id="Oie-93-f1T"/>
+                        <outlet property="missingCategoriesImageView" destination="ac9-I2-SXk" id="P2x-mz-Boj"/>
+                        <outlet property="missingRatingImageView" destination="lj0-ew-S0D" id="Ry5-BN-z0b"/>
+                        <outlet property="missingTitleImageView" destination="fp3-GC-7Oj" id="24F-Vj-zOD"/>
                         <outlet property="ratingTexField" destination="bba-ft-jUv" id="nwn-jY-oce"/>
                         <outlet property="scrollView" destination="7Fe-5t-Cwt" id="tp8-bG-ddR"/>
                         <outlet property="titleTextField" destination="vdl-bh-rxU" id="VyZ-Du-tvK"/>
@@ -255,6 +276,7 @@
     </scenes>
     <resources>
         <image name="action" width="37.5" height="37.5"/>
+        <image name="is-missing" width="81" height="17"/>
         <image name="placeholder-add-image" width="243" height="208"/>
     </resources>
 </document>

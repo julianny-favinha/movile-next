@@ -143,7 +143,7 @@ class NewMovieViewController: UIViewController {
         if let selectedImage = selectedImage {
             image = UUID().uuidString
         } else {
-            image = "placeholder"
+            image = "placeholder-large"
         }
         
         var title: String!

@@ -10,6 +10,7 @@ import UIKit
 
 class NewMovieViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var durationPickerView: UIPickerView!
@@ -27,6 +28,33 @@ class NewMovieViewController: UIViewController {
         super.viewDidLoad()
 
         setDurationPickerView()
+
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    // MARK: - Methods
+
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
 
     func setDurationPickerView() {
@@ -55,6 +83,20 @@ class NewMovieViewController: UIViewController {
             label.textAlignment = .center
             durationPickerView.addSubview(label)
         }
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let rect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+
+        let height = rect.size.height
+        scrollView.contentInset.bottom = height + 10
+        scrollView.scrollIndicatorInsets.bottom = height + 10
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset.bottom = 0
+        scrollView.scrollIndicatorInsets.bottom = 0
     }
 
     // MARK: IBActions
@@ -95,6 +137,7 @@ extension NewMovieViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension NewMovieViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -107,4 +150,14 @@ extension NewMovieViewController: UIImagePickerControllerDelegate, UINavigationC
             print("LOG: Error in getting image from photo library.")
         }
     }
+
+}
+
+extension NewMovieViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
 }

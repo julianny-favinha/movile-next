@@ -27,6 +27,7 @@
 		B1D72A202192317F0094BB0A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D72A1F2192317F0094BB0A /* Settings.storyboard */; };
 		B1D72A222192326F0094BB0A /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D72A212192326F0094BB0A /* MoviesTableViewController.swift */; };
 		B1D72A25219232DB0094BB0A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D72A24219232DB0094BB0A /* MovieTableViewCell.swift */; };
+		B1E6BBC62197A69400A6AD16 /* DateFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6BBC52197A69400A6AD16 /* DateFomatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B1D72A1F2192317F0094BB0A /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		B1D72A212192326F0094BB0A /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		B1D72A24219232DB0094BB0A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		B1E6BBC52197A69400A6AD16 /* DateFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFomatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		B1D6887F2190B7E6004FFD10 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				B1E6BBC42197A68200A6AD16 /* Utils */,
 				B16AB6D62195E6D200C44D24 /* Services */,
 				B1D72A1421922F6F0094BB0A /* Model */,
 				B1D72A1321922F680094BB0A /* Controller */,
@@ -176,6 +179,14 @@
 				B16AB6DB21960E2900C44D24 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B1E6BBC42197A68200A6AD16 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B1E6BBC52197A69400A6AD16 /* DateFomatter.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 				B1D72A25219232DB0094BB0A /* MovieTableViewCell.swift in Sources */,
 				B16AB6DC21960E2900C44D24 /* CategoryCollectionViewCell.swift in Sources */,
 				B16AB6D52195E6CD00C44D24 /* MoviesServices.swift in Sources */,
+				B1E6BBC62197A69400A6AD16 /* DateFomatter.swift in Sources */,
 				B1AB03DC219339B300D1B5E4 /* Movie.swift in Sources */,
 				B16AB6DE21960E9000C44D24 /* Category.swift in Sources */,
 			);

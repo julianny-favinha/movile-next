@@ -14,7 +14,7 @@ class NewMovieViewController: UIViewController {
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var missingTitleImageView: UIImageView!
-    @IBOutlet weak var durationPickerView: UIPickerView!
+    @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var ratingSlider: UISlider!
     @IBOutlet weak var ratingValueLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -45,14 +45,20 @@ class NewMovieViewController: UIViewController {
     
     var movie: Movie?
 
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .countDownTimer
+        return picker
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.missingTitleImageView.isHidden = true
         self.missingCategoriesImageView.isHidden = true
 
-        setDurationPickerView()
-        
+        configDatePicker()
+
         if let movie = movie {
             navigationController?.title = "Edit movie"
             configFields(movie: movie)
@@ -83,6 +89,29 @@ class NewMovieViewController: UIViewController {
     }
 
     // MARK: - Methods
+    
+    func configDatePicker() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        let doneButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                          target: self,
+                                                          action: #selector(doneDate))
+        let cancelButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                            target: self,
+                                                            action: #selector(cancelDate))
+        let flexibleButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.items = [cancelButton, flexibleButton, doneButton]
+        durationTextField.inputView = datePicker
+        durationTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneDate() {
+        durationTextField.text = datePicker.date.formatted
+        view.endEditing(true)
+    }
+    
+    @objc func cancelDate() {
+        view.endEditing(true)
+    }
 
     func configCollectionView() {
         collectionView.delegate = self
@@ -148,8 +177,6 @@ class NewMovieViewController: UIViewController {
             durationList.append(Int(durationStringList[1]
                 .replacingOccurrences(of: "min", with: "")
                 .replacingOccurrences(of: " ", with: ""))!)
-            self.durationPickerView.selectRow(durationList[0], inComponent: 0, animated: true)
-            self.durationPickerView.selectRow(durationList[1], inComponent: 1, animated: true)
         }
         
         if let rating = movie.rating {
@@ -170,34 +197,6 @@ class NewMovieViewController: UIViewController {
 //    @objc func dismissKeyboard() {
 //        self.view.endEditing(true)
 //    }
-
-    func setDurationPickerView() {
-        var hours: [Int] = []
-        for value in 0..<11 {
-            hours.append(value)
-        }
-
-        var minutes: [Int] = []
-        for value in 0..<60 {
-            minutes.append(value)
-        }
-
-        durationComponents = [hours, minutes]
-
-        let labelWidth = durationPickerView.frame.width / CGFloat(durationPickerView.numberOfComponents)
-
-        let texts: [String] = ["Hours", "Minutes"]
-        for index in 0..<texts.count {
-            let xPosition = durationPickerView.frame.origin.x + labelWidth * CGFloat(index)
-            let label: UILabel = UILabel(frame: CGRect(x: xPosition,
-                                                       y: 0,
-                                                       width: labelWidth,
-                                                       height: 20))
-            label.text = texts[index]
-            label.textAlignment = .center
-            durationPickerView.addSubview(label)
-        }
-    }
 
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
@@ -262,8 +261,7 @@ class NewMovieViewController: UIViewController {
             // TODO: save in coredata
             MoviesServices.movies.append(Movie(title: title,
                                            categories: categoriesString,
-                                           duration: "\(durationPickerView.selectedRow(inComponent: 0))h " +
-                                                        "\(durationPickerView.selectedRow(inComponent: 1))min",
+                                           duration: "h " + "min",
                                            rating: rating,
                                            summary: descriptionTextView.text,
                                            image: image,
@@ -291,22 +289,6 @@ class NewMovieViewController: UIViewController {
     @IBAction func ratingChangedValue(_ sender: UISlider) {
         ratingValueLabel.text = String(format: "%.1f", sender.value)
     }
-}
-
-extension NewMovieViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return durationComponents.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return durationComponents[component].count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(durationComponents[component][row])
-    }
-
 }
 
 // MARK: - Extensions

@@ -30,16 +30,20 @@ class NewMovieViewController: UIViewController {
     var selectedImage: UIImage?
 
     var categories: [Category] = [Category(type: CategoryType.action),
+                                  Category(type: CategoryType.adventure),
                                   Category(type: CategoryType.anime),
                                   Category(type: CategoryType.child),
                                   Category(type: CategoryType.comedy),
                                   Category(type: CategoryType.drama),
+                                  Category(type: CategoryType.fantasy),
                                   Category(type: CategoryType.horror),
                                   Category(type: CategoryType.musical),
                                   Category(type: CategoryType.romance),
                                   Category(type: CategoryType.scientificFiction),
                                   Category(type: CategoryType.thriller)]
     var selectedCategories: [Category] = []
+    
+    var movie: Movie?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,11 @@ class NewMovieViewController: UIViewController {
         self.missingCategoriesImageView.isHidden = true
 
         setDurationPickerView()
+        
+        if let movie = movie {
+            navigationController?.title = "Edit movie"
+            configFields(movie: movie)
+        }
 
 //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
 //        self.view.addGestureRecognizer(tap)
@@ -84,6 +93,79 @@ class NewMovieViewController: UIViewController {
         let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
         heightCollectionViewConstraint.constant = height
         self.view.setNeedsLayout()
+    }
+    
+    fileprivate func type(_ category: (String)) -> Category {
+        if category == "Action" {
+            self.categories[0].selected = true
+            return Category.init(type: CategoryType.action)
+        } else if category == "Adventure" {
+            self.categories[1].selected = true
+            return Category.init(type: CategoryType.adventure)
+        } else if category == "Anime" {
+            self.categories[2].selected = true
+            return Category.init(type: CategoryType.anime)
+        } else if category == "Child" {
+            self.categories[3].selected = true
+            return Category.init(type: CategoryType.child)
+        } else if category == "Comedy" {
+            self.categories[4].selected = true
+            return Category.init(type: CategoryType.comedy)
+        } else if category == "Drama" {
+            self.categories[5].selected = true
+            return Category.init(type: CategoryType.drama)
+        } else if category == "Fantasy" {
+            self.categories[6].selected = true
+            return Category.init(type: CategoryType.fantasy)
+        } else if category == "Horror" {
+            self.categories[7].selected = true
+            return Category.init(type: CategoryType.horror)
+        } else if category == "Musical" {
+            self.categories[8].selected = true
+            return Category.init(type: CategoryType.musical)
+        } else if category == "Romance" {
+            self.categories[9].selected = true
+            return Category.init(type: CategoryType.romance)
+        } else if category == "Sci-Fi" {
+            self.categories[10].selected = true
+            return Category.init(type: CategoryType.scientificFiction)
+        } else {
+            self.categories[11].selected = true
+            return Category.init(type: CategoryType.thriller)
+        }
+    }
+    
+    func configFields(movie: Movie) {
+        if let image = movie.image {
+            self.imageButton.setImage(UIImage(named: image), for: .normal)
+        }
+        
+        self.titleTextField.text = movie.title
+        
+        // TODO: this code is really ugly. uh
+        if let duration = movie.duration {
+            let durationStringList = duration.split(separator: "h")
+            var durationList: [Int] = [Int(durationStringList[0])!]
+            durationList.append(Int(durationStringList[1]
+                .replacingOccurrences(of: "min", with: "")
+                .replacingOccurrences(of: " ", with: ""))!)
+            self.durationPickerView.selectRow(durationList[0], inComponent: 0, animated: true)
+            self.durationPickerView.selectRow(durationList[1], inComponent: 1, animated: true)
+        }
+        
+        if let rating = movie.rating {
+            self.ratingTexField.text = String(rating).replacingOccurrences(of: ".", with: ",")
+        }
+        
+        self.descriptionTextView.text = movie.summary
+
+        if let movieCategories = movie.categories {
+            selectedCategories = movieCategories.map { category in
+                return type(category)
+            }
+        }
+        
+        collectionView.reloadData()
     }
 
 //    @objc func dismissKeyboard() {
@@ -178,6 +260,7 @@ class NewMovieViewController: UIViewController {
         if missingCategoriesImageView.isHidden &&
             missingRatingImageView.isHidden &&
             missingTitleImageView.isHidden {
+            // TODO: save in coredata
             MoviesServices.movies.append(Movie(title: title,
                                            categories: categoriesString,
                                            duration: "\(durationPickerView.selectedRow(inComponent: 0))h " +

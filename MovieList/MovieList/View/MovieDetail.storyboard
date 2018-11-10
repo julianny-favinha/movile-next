@@ -111,11 +111,20 @@
                         <outlet property="posterImageView" destination="PSR-YX-9xA" id="mbN-KE-xnw"/>
                         <outlet property="ratingLabel" destination="Ceb-cg-jv8" id="pAc-60-s0t"/>
                         <outlet property="titleLabel" destination="7uT-so-Tgo" id="dqQ-J5-nZX"/>
+                        <segue destination="f7P-8b-M3M" kind="showDetail" identifier="NewMovieSegue" id="tzK-1a-3On"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TBd-Jv-15i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="436" y="-217.24137931034485"/>
+        </scene>
+        <!--NewMovie-->
+        <scene sceneID="WEA-bR-lth">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewMovie" id="f7P-8b-M3M" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9w5-WN-vuz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-218"/>
         </scene>
     </scenes>
     <resources>

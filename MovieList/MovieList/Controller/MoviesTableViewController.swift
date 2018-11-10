@@ -28,6 +28,7 @@ class MoviesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // TODO: get from coredata
         movies = MoviesServices.movies
 
         if movies.count > 0 {
@@ -141,6 +142,7 @@ class MoviesTableViewController: UITableViewController {
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // TODO: remove from coredata
             movies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

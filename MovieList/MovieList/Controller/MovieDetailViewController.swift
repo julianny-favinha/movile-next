@@ -55,8 +55,15 @@ class MovieDetailViewController: UIViewController {
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.barTintColor = .white
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nav = segue.destination as? UINavigationController
+        if let destination = nav?.topViewController as? NewMovieViewController {
+            destination.movie = movie
+        }
+    }
 
     @objc func editMovie() {
-        // TODO: edit
+        performSegue(withIdentifier: "NewMovieSegue", sender: self)
     }
 }

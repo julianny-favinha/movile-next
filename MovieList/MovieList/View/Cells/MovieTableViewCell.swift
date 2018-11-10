@@ -32,7 +32,7 @@ class MovieTableViewCell: UITableViewCell {
             posterImageView.image = #imageLiteral(resourceName: "placeholder")
         }
         durationLabel.text = movie.duration
-        ratingLabel.text = "⭐️ \(movie.rating ?? 0.0)"
+        ratingLabel.text = "⭐️ \(String(format: "%.1f", movie.rating ?? 0.0))"
     }
 
 }

@@ -15,8 +15,8 @@ class NewMovieViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var missingTitleImageView: UIImageView!
     @IBOutlet weak var durationPickerView: UIPickerView!
-    @IBOutlet weak var ratingTexField: UITextField!
-    @IBOutlet weak var missingRatingImageView: UIImageView!
+    @IBOutlet weak var ratingSlider: UISlider!
+    @IBOutlet weak var ratingValueLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var missingCategoriesImageView: UIImageView!
@@ -49,7 +49,6 @@ class NewMovieViewController: UIViewController {
         super.viewDidLoad()
         
         self.missingTitleImageView.isHidden = true
-        self.missingRatingImageView.isHidden = true
         self.missingCategoriesImageView.isHidden = true
 
         setDurationPickerView()
@@ -154,7 +153,7 @@ class NewMovieViewController: UIViewController {
         }
         
         if let rating = movie.rating {
-            self.ratingTexField.text = String(rating).replacingOccurrences(of: ".", with: ",")
+            self.ratingValueLabel.text = String(rating)
         }
         
         self.descriptionTextView.text = movie.summary
@@ -240,14 +239,15 @@ class NewMovieViewController: UIViewController {
             missingTitleImageView.isHidden = false
         }
         
-        var rating: Double!
-        if let ratingString = ratingTexField.text,
-            let ratingSelected = Double(ratingString.replacingOccurrences(of: ",", with: ".")) {
-            rating = ratingSelected
-            missingRatingImageView.isHidden = true
-        } else {
-            missingRatingImageView.isHidden = false
-        }
+        let rating: Double = Double(ratingSlider.value)
+//        var rating: Double!
+//        if let ratingString = ratingTexField.text,
+//            let ratingSelected = Double(ratingString.replacingOccurrences(of: ",", with: ".")) {
+//            rating = ratingSelected
+//            missingRatingImageView.isHidden = true
+//        } else {
+//            missingRatingImageView.isHidden = false
+//        }
         
         var categoriesString: [String] = []
         if selectedCategories.isEmpty {
@@ -258,7 +258,6 @@ class NewMovieViewController: UIViewController {
         }
         
         if missingCategoriesImageView.isHidden &&
-            missingRatingImageView.isHidden &&
             missingTitleImageView.isHidden {
             // TODO: save in coredata
             MoviesServices.movies.append(Movie(title: title,
@@ -287,6 +286,10 @@ class NewMovieViewController: UIViewController {
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }
+    }
+
+    @IBAction func ratingChangedValue(_ sender: UISlider) {
+        ratingValueLabel.text = String(format: "%.1f", sender.value)
     }
 }
 

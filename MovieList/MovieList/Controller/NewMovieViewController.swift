@@ -170,14 +170,7 @@ class NewMovieViewController: UIViewController {
         
         self.titleTextField.text = movie.title
         
-        // TODO: this code is really ugly. uh
-        if let duration = movie.duration {
-            let durationStringList = duration.split(separator: "h")
-            var durationList: [Int] = [Int(durationStringList[0])!]
-            durationList.append(Int(durationStringList[1]
-                .replacingOccurrences(of: "min", with: "")
-                .replacingOccurrences(of: " ", with: ""))!)
-        }
+        durationTextField.text = movie.duration
         
         if let rating = movie.rating {
             self.ratingValueLabel.text = String(rating)

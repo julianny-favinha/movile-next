@@ -18,30 +18,14 @@ class NewMovieViewController: UIViewController {
     @IBOutlet weak var ratingSlider: UISlider!
     @IBOutlet weak var ratingValueLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var categoriesTextField: UITextField!
     @IBOutlet weak var missingCategoriesImageView: UIImageView!
-    
-    @IBOutlet weak var heightCollectionViewConstraint: NSLayoutConstraint!
 
     var durationComponents: [[Int]] = []
 
     var imagePickedBlock: ((UIImage) -> Void)?
 
     var selectedImage: UIImage?
-
-    var categories: [Category] = [Category(type: CategoryType.action),
-                                  Category(type: CategoryType.adventure),
-                                  Category(type: CategoryType.anime),
-                                  Category(type: CategoryType.child),
-                                  Category(type: CategoryType.comedy),
-                                  Category(type: CategoryType.drama),
-                                  Category(type: CategoryType.fantasy),
-                                  Category(type: CategoryType.horror),
-                                  Category(type: CategoryType.musical),
-                                  Category(type: CategoryType.romance),
-                                  Category(type: CategoryType.scientificFiction),
-                                  Category(type: CategoryType.thriller)]
-    var selectedCategories: [Category] = []
     
     var movie: Movie?
 
@@ -64,8 +48,8 @@ class NewMovieViewController: UIViewController {
             configFields(movie: movie)
         }
 
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        self.view.addGestureRecognizer(tap)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -80,8 +64,6 @@ class NewMovieViewController: UIViewController {
                                                selector: #selector(keyboardWillHide(notification:)),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
-
-        configCollectionView()
     }
 
     deinit {
@@ -112,56 +94,6 @@ class NewMovieViewController: UIViewController {
     @objc func cancelDate() {
         view.endEditing(true)
     }
-
-    func configCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-
-        // change height of collection view to show all cells
-        let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
-        heightCollectionViewConstraint.constant = height
-        self.view.setNeedsLayout()
-    }
-    
-    fileprivate func type(_ category: (String)) -> Category {
-        if category == "Action" {
-            self.categories[0].selected = true
-            return Category.init(type: CategoryType.action)
-        } else if category == "Adventure" {
-            self.categories[1].selected = true
-            return Category.init(type: CategoryType.adventure)
-        } else if category == "Anime" {
-            self.categories[2].selected = true
-            return Category.init(type: CategoryType.anime)
-        } else if category == "Child" {
-            self.categories[3].selected = true
-            return Category.init(type: CategoryType.child)
-        } else if category == "Comedy" {
-            self.categories[4].selected = true
-            return Category.init(type: CategoryType.comedy)
-        } else if category == "Drama" {
-            self.categories[5].selected = true
-            return Category.init(type: CategoryType.drama)
-        } else if category == "Fantasy" {
-            self.categories[6].selected = true
-            return Category.init(type: CategoryType.fantasy)
-        } else if category == "Horror" {
-            self.categories[7].selected = true
-            return Category.init(type: CategoryType.horror)
-        } else if category == "Musical" {
-            self.categories[8].selected = true
-            return Category.init(type: CategoryType.musical)
-        } else if category == "Romance" {
-            self.categories[9].selected = true
-            return Category.init(type: CategoryType.romance)
-        } else if category == "Sci-Fi" {
-            self.categories[10].selected = true
-            return Category.init(type: CategoryType.scientificFiction)
-        } else {
-            self.categories[11].selected = true
-            return Category.init(type: CategoryType.thriller)
-        }
-    }
     
     func configFields(movie: Movie) {
         if let image = movie.image {
@@ -178,18 +110,12 @@ class NewMovieViewController: UIViewController {
         
         self.descriptionTextView.text = movie.summary
 
-        if let movieCategories = movie.categories {
-            selectedCategories = movieCategories.map { category in
-                return type(category)
-            }
-        }
-        
-        collectionView.reloadData()
+        // TODO: put in text field the categories
     }
 
-//    @objc func dismissKeyboard() {
-//        self.view.endEditing(true)
-//    }
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
 
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
@@ -232,28 +158,14 @@ class NewMovieViewController: UIViewController {
         }
         
         let rating: Double = Double(ratingSlider.value)
-//        var rating: Double!
-//        if let ratingString = ratingTexField.text,
-//            let ratingSelected = Double(ratingString.replacingOccurrences(of: ",", with: ".")) {
-//            rating = ratingSelected
-//            missingRatingImageView.isHidden = true
-//        } else {
-//            missingRatingImageView.isHidden = false
-//        }
         
-        var categoriesString: [String] = []
-        if selectedCategories.isEmpty {
-            missingCategoriesImageView.isHidden = false
-        } else {
-            missingCategoriesImageView.isHidden = true
-            categoriesString = selectedCategories.map { String($0.title) }
-        }
+        // TODO: get categories
         
         if missingCategoriesImageView.isHidden &&
             missingTitleImageView.isHidden {
             // TODO: save in coredata
             MoviesServices.movies.append(Movie(title: title,
-                                           categories: categoriesString,
+                                           categories: [""],
                                            duration: "h " + "min",
                                            rating: rating,
                                            summary: descriptionTextView.text,
@@ -308,44 +220,6 @@ extension NewMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-
-}
-
-extension NewMovieViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionCell",
-                                                            for: indexPath)
-            as? CategoryCollectionViewCell else { return UICollectionViewCell() }
-
-        cell.prepareCell(category: categories[indexPath.row])
-        cell.isUserInteractionEnabled = true
-
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        categories[indexPath.row].selected = categories[indexPath.row].selected ? false : true
-
-        if categories[indexPath.row].selected == false {
-            if let index = self.selectedCategories.index(where: { element in
-                return categories[indexPath.row].title == element.title
-            }) {
-                self.selectedCategories.remove(at: index)
-            }
-        } else {
-            self.selectedCategories.append(categories[indexPath.row])
-        }
-
-        print("selectedCategories: \(self.selectedCategories)")
-
-        collectionView.reloadItems(at: [indexPath])
     }
 
 }

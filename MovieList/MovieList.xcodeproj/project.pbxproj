@@ -11,6 +11,9 @@
 		B124C2382199CCC80052D77F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C2372199CCC80052D77F /* UserDefaultsManager.swift */; };
 		B124C23A2199CF580052D77F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C2392199CF580052D77F /* SettingsViewController.swift */; };
 		B124C23C2199D2FF0052D77F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B124C23B2199D2FF0052D77F /* Settings.bundle */; };
+		B124C23F2199D7220052D77F /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C23E2199D7220052D77F /* LightTheme.swift */; };
+		B124C2412199D72B0052D77F /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C2402199D72B0052D77F /* DarkTheme.swift */; };
+		B124C2432199D7310052D77F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C2422199D7310052D77F /* Theme.swift */; };
 		B16AB6D52195E6CD00C44D24 /* MoviesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AB6D42195E6CD00C44D24 /* MoviesServices.swift */; };
 		B16AB6D82195EAC300C44D24 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AB6D72195EAC300C44D24 /* ReleaseTableViewCell.swift */; };
 		B16AB6DA2195EAFC00C44D24 /* ReleaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AB6D92195EAFC00C44D24 /* ReleaseCollectionViewCell.swift */; };
@@ -38,6 +41,9 @@
 		B124C2372199CCC80052D77F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		B124C2392199CF580052D77F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B124C23B2199D2FF0052D77F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		B124C23E2199D7220052D77F /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		B124C2402199D72B0052D77F /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		B124C2422199D7310052D77F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B16AB6D42195E6CD00C44D24 /* MoviesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServices.swift; sourceTree = "<group>"; };
 		B16AB6D72195EAC300C44D24 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
 		B16AB6D92195EAFC00C44D24 /* ReleaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +104,16 @@
 			path = Persistent;
 			sourceTree = "<group>";
 		};
+		B124C23D2199D7140052D77F /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				B124C23E2199D7220052D77F /* LightTheme.swift */,
+				B124C2402199D72B0052D77F /* DarkTheme.swift */,
+				B124C2422199D7310052D77F /* Theme.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		B16AB6D62195E6D200C44D24 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +168,7 @@
 		B1D72A1221922F5D0094BB0A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B124C23D2199D7140052D77F /* Themes */,
 				B175FD6D2193488A00B8224A /* Custom */,
 				B1D72A23219232CC0094BB0A /* Cells */,
 				B1D72A1B219231100094BB0A /* Main.storyboard */,
@@ -329,9 +346,12 @@
 				B175FD71219358CD00B8224A /* MovieDetailViewController.swift in Sources */,
 				B1D72A25219232DB0094BB0A /* MovieTableViewCell.swift in Sources */,
 				B124C23A2199CF580052D77F /* SettingsViewController.swift in Sources */,
+				B124C2432199D7310052D77F /* Theme.swift in Sources */,
 				B16AB6D52195E6CD00C44D24 /* MoviesServices.swift in Sources */,
+				B124C2412199D72B0052D77F /* DarkTheme.swift in Sources */,
 				B124C2382199CCC80052D77F /* UserDefaultsManager.swift in Sources */,
 				B1E6BBC62197A69400A6AD16 /* DateFomatter.swift in Sources */,
+				B124C23F2199D7220052D77F /* LightTheme.swift in Sources */,
 				B1AB03DC219339B300D1B5E4 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

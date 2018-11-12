@@ -137,7 +137,6 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ac9-I2-SXk" firstAttribute="centerY" secondItem="ChY-Wo-e0v" secondAttribute="centerY" id="2Fi-6p-5br"/>
                                             <constraint firstItem="aSu-JB-CBj" firstAttribute="centerY" secondItem="fp3-GC-7Oj" secondAttribute="centerY" id="3ys-6s-uBg"/>
@@ -210,15 +209,20 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="950"/>
                     <connections>
+                        <outlet property="categoriesLabel" destination="ChY-Wo-e0v" id="jT5-Mj-Wpq"/>
                         <outlet property="categoriesTextField" destination="cyn-2b-4gu" id="il4-Y8-XTc"/>
+                        <outlet property="descriptionLabel" destination="kKa-Or-175" id="kGO-9r-Uvk"/>
                         <outlet property="descriptionTextView" destination="swj-QU-v1c" id="cAw-C6-OSo"/>
+                        <outlet property="durationLabel" destination="tLS-Bc-v9a" id="o7r-Z6-XqH"/>
                         <outlet property="durationTextField" destination="6OH-7P-9m7" id="iGe-Cy-Ydy"/>
                         <outlet property="imageButton" destination="ePx-Y0-d61" id="Oie-93-f1T"/>
                         <outlet property="missingCategoriesImageView" destination="ac9-I2-SXk" id="P2x-mz-Boj"/>
                         <outlet property="missingTitleImageView" destination="fp3-GC-7Oj" id="24F-Vj-zOD"/>
+                        <outlet property="ratingLabel" destination="umq-tl-Wdo" id="Usj-Es-REG"/>
                         <outlet property="ratingSlider" destination="XQV-Zt-B5C" id="VgB-ot-tF9"/>
                         <outlet property="ratingValueLabel" destination="n3P-wd-W0P" id="HOD-aL-MT0"/>
                         <outlet property="scrollView" destination="7Fe-5t-Cwt" id="tp8-bG-ddR"/>
+                        <outlet property="titleLabel" destination="aSu-JB-CBj" id="Vbf-tc-R48"/>
                         <outlet property="titleTextField" destination="vdl-bh-rxU" id="VyZ-Du-tvK"/>
                     </connections>
                 </viewController>

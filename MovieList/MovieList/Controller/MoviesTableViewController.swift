@@ -36,9 +36,7 @@ class MoviesTableViewController: UITableViewController {
         }
         tableView.reloadData()
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.setValue(false, forKey: "hidesShadow")
-        self.navigationController?.navigationBar.barTintColor = nil
+        setTheme()
     }
 
     // MARK: Methods
@@ -47,6 +45,22 @@ class MoviesTableViewController: UITableViewController {
         if let destination = segue.destination as? MovieDetailViewController {
             destination.movie = selectedMovie
         }
+    }
+
+    fileprivate func setTheme() {
+        let colorNumber = UserDefaultsManager.colorNumber()
+        let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
+
+        self.view.backgroundColor = theme.backgroundColor
+
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.setValue(false, forKey: "hidesShadow")
+        self.navigationController?.navigationBar.barStyle = theme.barStyle
+        self.navigationController?.navigationBar.isTranslucent = true
+
+        self.tabBarController?.tabBar.barStyle = theme.barStyle
+
+        self.tableView.backgroundColor = theme.backgroundColor
     }
 
     // MARK: IBActions
@@ -120,12 +134,6 @@ class MoviesTableViewController: UITableViewController {
         selectedMovie = movies[indexPath.row]
         performSegue(withIdentifier: "MovieDetailSegue", sender: self)
     }
-
-    // Override to support conditional editing of the table view.
-//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        // Return false if you do not want the specified item to be editable.
-//        return true
-//    }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         guard let itemType = movies[indexPath.row].itemType else { return false }

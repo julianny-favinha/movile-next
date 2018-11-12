@@ -12,12 +12,17 @@ class NewMovieViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var missingTitleImageView: UIImageView!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var durationTextField: UITextField!
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var ratingSlider: UISlider!
     @IBOutlet weak var ratingValueLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var categoriesTextField: UITextField!
     @IBOutlet weak var missingCategoriesImageView: UIImageView!
 
@@ -26,7 +31,7 @@ class NewMovieViewController: UIViewController {
     var imagePickedBlock: ((UIImage) -> Void)?
 
     var selectedImage: UIImage?
-    
+
     var movie: Movie?
 
     let datePicker: UIDatePicker = {
@@ -38,6 +43,8 @@ class NewMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTheme()
+
         self.missingTitleImageView.isHidden = true
         self.missingCategoriesImageView.isHidden = true
 
@@ -71,7 +78,23 @@ class NewMovieViewController: UIViewController {
     }
 
     // MARK: - Methods
-    
+
+    fileprivate func setTheme() {
+        let colorNumber = UserDefaultsManager.colorNumber()
+        let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
+
+        self.view.backgroundColor = theme.backgroundColor
+
+        self.navigationController?.navigationBar.barStyle = theme.barStyle
+
+        self.titleLabel.textColor = theme.labelColor
+        self.durationLabel.textColor = theme.labelColor
+        self.ratingLabel.textColor = theme.labelColor
+        self.ratingValueLabel.textColor = theme.labelColor
+        self.descriptionLabel.textColor = theme.labelColor
+        self.categoriesLabel.textColor = theme.labelColor
+    }
+
     func configDatePicker() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         let doneButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
@@ -85,29 +108,29 @@ class NewMovieViewController: UIViewController {
         durationTextField.inputView = datePicker
         durationTextField.inputAccessoryView = toolbar
     }
-    
+
     @objc func doneDate() {
         durationTextField.text = datePicker.date.formatted
         view.endEditing(true)
     }
-    
+
     @objc func cancelDate() {
         view.endEditing(true)
     }
-    
+
     func configFields(movie: Movie) {
         if let image = movie.image {
             self.imageButton.setImage(UIImage(named: image), for: .normal)
         }
-        
+
         self.titleTextField.text = movie.title
-        
+
         durationTextField.text = movie.duration
-        
+
         if let rating = movie.rating {
             self.ratingValueLabel.text = String(rating)
         }
-        
+
         self.descriptionTextView.text = movie.summary
 
         // TODO: put in text field the categories
@@ -144,7 +167,7 @@ class NewMovieViewController: UIViewController {
         } else {
             image = "placeholder-large"
         }
-        
+
         var title: String!
         if let titleSelected = titleTextField.text {
             if titleSelected.isEmpty {
@@ -156,11 +179,11 @@ class NewMovieViewController: UIViewController {
         } else {
             missingTitleImageView.isHidden = false
         }
-        
+
         let rating: Double = Double(ratingSlider.value)
-        
+
         // TODO: get categories
-        
+
         if missingCategoriesImageView.isHidden &&
             missingTitleImageView.isHidden {
             // TODO: save in coredata

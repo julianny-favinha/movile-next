@@ -10,10 +10,10 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
 
-    @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
 
@@ -40,22 +40,37 @@ class MovieDetailViewController: UIViewController {
         descriptionLabel.text = movie?.summary
     }
 
+    fileprivate func setTheme() {
+        let colorNumber = UserDefaultsManager.colorNumber()
+        let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
+
+        self.view.backgroundColor = theme.backgroundColor
+        self.titleLabel.textColor = theme.labelColor
+        self.ratingLabel.textColor = theme.labelColor
+        self.durationLabel.textColor = theme.labelColor
+        self.categoriesLabel.textColor = theme.labelColor
+        self.descriptionLabel.textColor = theme.labelColor
+
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        self.navigationController?.navigationBar.barStyle = theme.barStyle
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                            target: self,
+                                                            action: #selector(editMovie))
 
         configView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
-                                                            target: self,
-                                                            action: #selector(editMovie))
-
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        self.navigationController?.navigationBar.barTintColor = .white
+        setTheme()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nav = segue.destination as? UINavigationController
         if let destination = nav?.topViewController as? NewMovieViewController {

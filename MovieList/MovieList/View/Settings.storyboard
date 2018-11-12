@@ -74,7 +74,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="UhJ-bx-Wck"/>
                     <connections>
+                        <outlet property="autoPlayLabel" destination="l9g-Q3-rno" id="Eqr-Ms-fGi"/>
                         <outlet property="autoPlaySwitch" destination="gh1-kp-ejO" id="ssL-dn-KcI"/>
+                        <outlet property="colorLabel" destination="ibb-GY-IAh" id="hQs-FB-Mkz"/>
                         <outlet property="colorSegmentedControl" destination="cov-gC-Vi3" id="jxK-xN-9tT"/>
                     </connections>
                 </viewController>

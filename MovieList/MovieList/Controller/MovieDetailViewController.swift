@@ -10,6 +10,8 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
 
+    // MARK: - IBOutlets
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -17,7 +19,43 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
 
+    // MARK: - Variables
+
     var movie: Movie?
+
+    // MARK: - Super Methods
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                            target: self,
+                                                            action: #selector(editMovie))
+
+        configView()
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setTheme),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        setTheme()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nav = segue.destination as? UINavigationController
+        if let destination = nav?.topViewController as? NewMovieViewController {
+            destination.movie = movie
+        }
+    }
+
+    // MARK: - Methods
 
     fileprivate func configView() {
         titleLabel.text = movie?.title
@@ -40,7 +78,7 @@ class MovieDetailViewController: UIViewController {
         descriptionLabel.text = movie?.summary
     }
 
-    fileprivate func setTheme() {
+    @objc fileprivate func setTheme() {
         let colorNumber = UserDefaultsManager.colorNumber()
         let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
 
@@ -57,28 +95,9 @@ class MovieDetailViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
-                                                            target: self,
-                                                            action: #selector(editMovie))
-
-        configView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        setTheme()
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nav = segue.destination as? UINavigationController
-        if let destination = nav?.topViewController as? NewMovieViewController {
-            destination.movie = movie
-        }
-    }
-
     @objc func editMovie() {
         performSegue(withIdentifier: "NewMovieSegue", sender: self)
     }
+
+    // MARK: - IBActions
 }

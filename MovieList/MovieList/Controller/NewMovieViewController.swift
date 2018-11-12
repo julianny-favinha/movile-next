@@ -10,6 +10,8 @@ import UIKit
 
 class NewMovieViewController: UIViewController {
 
+    // MARK: - IBOUtlets
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -26,6 +28,8 @@ class NewMovieViewController: UIViewController {
     @IBOutlet weak var categoriesTextField: UITextField!
     @IBOutlet weak var missingCategoriesImageView: UIImageView!
 
+    // MARK: - Variables
+
     var durationComponents: [[Int]] = []
 
     var imagePickedBlock: ((UIImage) -> Void)?
@@ -40,10 +44,16 @@ class NewMovieViewController: UIViewController {
         return picker
     }()
 
+    // MARK: - Super Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setTheme()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setTheme),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
 
         self.missingTitleImageView.isHidden = true
         self.missingCategoriesImageView.isHidden = true
@@ -79,7 +89,7 @@ class NewMovieViewController: UIViewController {
 
     // MARK: - Methods
 
-    fileprivate func setTheme() {
+    @objc fileprivate func setTheme() {
         let colorNumber = UserDefaultsManager.colorNumber()
         let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
 

@@ -10,26 +10,26 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController {
 
+    // MARK: - IBOutlets
+
+    // MARK: - Variables
+
     var movies: [Movie] = []
     var selectedMovie: Movie?
 
     var releases: [Movie] = []
 
+    // MARK: - Super Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // TODO: get from coredata
+        movies = MoviesServices.movies
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        // TODO: get from coredata
-        movies = MoviesServices.movies
 
         if movies.count > 0 {
             navigationItem.leftBarButtonItem?.isEnabled = true
@@ -37,9 +37,11 @@ class MoviesTableViewController: UITableViewController {
         tableView.reloadData()
 
         setTheme()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setTheme),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
     }
-
-    // MARK: Methods
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MovieDetailViewController {
@@ -47,7 +49,13 @@ class MoviesTableViewController: UITableViewController {
         }
     }
 
-    fileprivate func setTheme() {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    // MARK: - Methods
+
+    @objc fileprivate func setTheme() {
         let colorNumber = UserDefaultsManager.colorNumber()
         let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
 
@@ -63,7 +71,7 @@ class MoviesTableViewController: UITableViewController {
         self.tableView.backgroundColor = theme.backgroundColor
     }
 
-    // MARK: IBActions
+    // MARK: - IBActions
 
     @IBAction func editPressed(_ sender: UIBarButtonItem) {
         tableView.setEditing(!tableView.isEditing, animated: true)
@@ -177,6 +185,8 @@ class MoviesTableViewController: UITableViewController {
 
 }
 
+// MARK: - Extensions
+
 extension MoviesTableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -185,7 +195,6 @@ extension MoviesTableViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("")
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReleaseCollectionCell",
                                                             for: indexPath)
             as? ReleaseCollectionViewCell else { return UICollectionViewCell() }

@@ -28,9 +28,16 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
-                                                            target: self,
-                                                            action: #selector(editMovie))
+        let editMovieButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                               target: self,
+                                                               action: #selector(editMovie))
+
+        let notificationButton: UIBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "bell"),
+                                                                  style: .done,
+                                                                  target: self,
+                                                                  action: #selector(notify))
+
+        navigationItem.rightBarButtonItems = [notificationButton, editMovieButton]
 
         configView()
 
@@ -49,8 +56,14 @@ class MovieDetailViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nav = segue.destination as? UINavigationController
-        if let destination = nav?.topViewController as? NewMovieViewController {
+        // notification
+        if let destination = segue.destination as? NotificationViewController {
+            destination.movie = movie
+        }
+
+        // edit movie
+        if let nav = segue.destination as? UINavigationController,
+            let destination = nav.topViewController as? NewMovieViewController {
             destination.movie = movie
         }
     }
@@ -97,6 +110,10 @@ class MovieDetailViewController: UIViewController {
 
     @objc func editMovie() {
         performSegue(withIdentifier: "NewMovieSegue", sender: self)
+    }
+
+    @objc func notify() {
+        performSegue(withIdentifier: "NotificationSegue", sender: self)
     }
 
     // MARK: - IBActions

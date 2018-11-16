@@ -14,6 +14,8 @@
 		B124C23F2199D7220052D77F /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C23E2199D7220052D77F /* LightTheme.swift */; };
 		B124C2412199D72B0052D77F /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C2402199D72B0052D77F /* DarkTheme.swift */; };
 		B124C2432199D7310052D77F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124C2422199D7310052D77F /* Theme.swift */; };
+		B1261B40219F08E500DDCE7B /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1261B3F219F08E500DDCE7B /* Notification.storyboard */; };
+		B1261B42219F097800DDCE7B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1261B41219F097800DDCE7B /* NotificationViewController.swift */; };
 		B16AB6D52195E6CD00C44D24 /* MoviesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AB6D42195E6CD00C44D24 /* MoviesServices.swift */; };
 		B16AB6D82195EAC300C44D24 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AB6D72195EAC300C44D24 /* ReleaseTableViewCell.swift */; };
 		B16AB6DA2195EAFC00C44D24 /* ReleaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AB6D92195EAFC00C44D24 /* ReleaseCollectionViewCell.swift */; };
@@ -44,6 +46,8 @@
 		B124C23E2199D7220052D77F /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		B124C2402199D72B0052D77F /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		B124C2422199D7310052D77F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B1261B3F219F08E500DDCE7B /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		B1261B41219F097800DDCE7B /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		B16AB6D42195E6CD00C44D24 /* MoviesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServices.swift; sourceTree = "<group>"; };
 		B16AB6D72195EAC300C44D24 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
 		B16AB6D92195EAFC00C44D24 /* ReleaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				B1D72A1D219231720094BB0A /* Movies.storyboard */,
 				B1AB03D721932F3300D1B5E4 /* NewMovie.storyboard */,
 				B1AB03D92193300200D1B5E4 /* MovieDetail.storyboard */,
+				B1261B3F219F08E500DDCE7B /* Notification.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				B1AB03D521932F2200D1B5E4 /* NewMovieViewController.swift */,
 				B175FD70219358CD00B8224A /* MovieDetailViewController.swift */,
 				B124C2392199CF580052D77F /* SettingsViewController.swift */,
+				B1261B41219F097800DDCE7B /* NotificationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 			files = (
 				B124C23C2199D2FF0052D77F /* Settings.bundle in Resources */,
 				B1D72A1C219231100094BB0A /* Main.storyboard in Resources */,
+				B1261B40219F08E500DDCE7B /* Notification.storyboard in Resources */,
 				B1D6888B2190B7E8004FFD10 /* LaunchScreen.storyboard in Resources */,
 				B1D688882190B7E8004FFD10 /* Assets.xcassets in Resources */,
 				B1D72A1E219231720094BB0A /* Movies.storyboard in Resources */,
@@ -349,6 +356,7 @@
 				B124C2432199D7310052D77F /* Theme.swift in Sources */,
 				B16AB6D52195E6CD00C44D24 /* MoviesServices.swift in Sources */,
 				B124C2412199D72B0052D77F /* DarkTheme.swift in Sources */,
+				B1261B42219F097800DDCE7B /* NotificationViewController.swift in Sources */,
 				B124C2382199CCC80052D77F /* UserDefaultsManager.swift in Sources */,
 				B1E6BBC62197A69400A6AD16 /* DateFomatter.swift in Sources */,
 				B124C23F2199D7220052D77F /* LightTheme.swift in Sources */,

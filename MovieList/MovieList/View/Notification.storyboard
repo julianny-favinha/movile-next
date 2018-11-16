@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yfH-9n-ZAT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notification View Controller-->
+        <scene sceneID="0sl-ug-MHS">
+            <objects>
+                <viewController id="yfH-9n-ZAT" customClass="NotificationViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="joe-X6-v3O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh0-Gs-TOf">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Notification" id="PZt-zR-6Ih">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PBw-Bn-fXD">
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="yfH-9n-ZAT" id="Yy8-8R-rLQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YoD-sV-k53">
+                                            <connections>
+                                                <action selector="savePressed:" destination="yfH-9n-ZAT" id="10u-ue-uBI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3eF-CM-KRp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Dc-4c-tMt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="564070747.50060499">
+                                            <!--2018-11-16 14:19:07 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dh0-Gs-TOf" firstAttribute="top" secondItem="pym-WT-L3O" secondAttribute="top" id="8vI-SM-mgV"/>
+                            <constraint firstItem="3eF-CM-KRp" firstAttribute="top" secondItem="dh0-Gs-TOf" secondAttribute="bottom" id="ISk-pw-vg3"/>
+                            <constraint firstItem="dh0-Gs-TOf" firstAttribute="leading" secondItem="pym-WT-L3O" secondAttribute="leading" id="Kcp-ti-wVj"/>
+                            <constraint firstItem="pym-WT-L3O" firstAttribute="bottom" secondItem="3eF-CM-KRp" secondAttribute="bottom" id="aST-lX-lVj"/>
+                            <constraint firstItem="dh0-Gs-TOf" firstAttribute="trailing" secondItem="pym-WT-L3O" secondAttribute="trailing" id="bVd-lT-d6q"/>
+                            <constraint firstItem="3eF-CM-KRp" firstAttribute="leading" secondItem="pym-WT-L3O" secondAttribute="leading" id="khE-sd-aET"/>
+                            <constraint firstItem="pym-WT-L3O" firstAttribute="trailing" secondItem="3eF-CM-KRp" secondAttribute="trailing" id="vJn-hY-1Wi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pym-WT-L3O"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="0Dc-4c-tMt" id="fNu-4V-9ES"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Diz-5l-Lhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="157"/>
+        </scene>
+    </scenes>
+</document>

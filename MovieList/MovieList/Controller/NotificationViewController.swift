@@ -62,7 +62,8 @@ class NotificationViewController: UIViewController {
 
         let content = UNMutableNotificationContent()
         content.title = "Watch now the movie '\(movie?.title ?? "")'"
-        content.body = "So much \(movie?.categories?.first ?? "")!"
+//        content.body = "So much \(movie?.categories?.first ?? "")!"
+        content.body = "So much fun!"
         content.categoryIdentifier = "reminder"
 
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute],

@@ -38,6 +38,8 @@ class NewMovieViewController: UIViewController {
 
     var movie: Movie?
 
+    var categoriesChosen: [Category] = []
+
     let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .countDownTimer
@@ -87,6 +89,13 @@ class NewMovieViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // new category
+        if let destination = segue.destination as? NewCategoryTableViewController {
+            destination.delegate = self
+        }
+    }
+
     // MARK: - Methods
 
     @objc fileprivate func setTheme() {
@@ -129,21 +138,27 @@ class NewMovieViewController: UIViewController {
     }
 
     func configFields(movie: Movie) {
-        if let image = movie.image {
-            self.imageButton.setImage(UIImage(named: image), for: .normal)
+        if let imageData = movie.image {
+            self.imageButton.setImage(UIImage(data: imageData), for: .normal)
         }
 
         self.titleTextField.text = movie.title
 
-        durationTextField.text = movie.duration
+        self.durationTextField.text = movie.duration?.formatted
 
-        if let rating = movie.rating {
-            self.ratingValueLabel.text = String(rating)
-        }
+        self.ratingValueLabel.text = String(movie.rating)
 
         self.descriptionTextView.text = movie.summary
 
         // TODO: put in text field the categories
+        if let categories = movie.categories {
+            categoriesTextField.text = String(categories.reduce("", { result, next in
+                if let nextString = next as? String {
+                    return result + nextString + ", "
+                }
+                return result
+            }).dropLast(2))
+        }
     }
 
     @objc func dismissKeyboard() {
@@ -171,11 +186,8 @@ class NewMovieViewController: UIViewController {
     }
 
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        var image: String!
-        if let selectedImage = selectedImage {
-            image = UUID().uuidString
-        } else {
-            image = "placeholder-large"
+        if movie == nil {
+            movie = Movie(context: context)
         }
 
         var title: String!
@@ -190,21 +202,18 @@ class NewMovieViewController: UIViewController {
             missingTitleImageView.isHidden = false
         }
 
-        let rating: Double = Double(ratingSlider.value)
-
-        // TODO: get categories
-
         if missingCategoriesImageView.isHidden &&
             missingTitleImageView.isHidden {
             // TODO: save in coredata
-            MoviesServices.movies.append(Movie(title: title,
-                                           categories: [""],
-                                           duration: "h " + "min",
-                                           rating: rating,
-                                           summary: descriptionTextView.text,
-                                           image: image,
-                                           itemType: ItemType.movie,
-                                           items: nil))
+            movie?.title = title
+            movie?.categories = NSSet(array: categoriesChosen)
+            movie?.duration = datePicker.date
+            movie?.rating = Double(ratingSlider.value)
+            movie?.summary = descriptionTextView.text
+            if let image = imageButton.imageView, let imageData = image.image?.pngData() {
+                movie?.image = imageData
+            }
+            saveContext()
 
             self.dismiss(animated: true, completion: nil)
         } else {
@@ -253,6 +262,21 @@ extension NewMovieViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+}
+
+extension NewMovieViewController: FilterCategoryDelegate {
+
+    func finishCategoryPassing(categories: [Category]) {
+        self.categoriesChosen = categories
+
+        categoriesTextField.text = String(categories.reduce("", { result, next in
+            if let nextString = next.name {
+                return result + nextString + ", "
+            }
+            return result
+        }).dropLast(2))
     }
 
 }

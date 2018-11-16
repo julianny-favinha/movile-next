@@ -15,8 +15,8 @@ class ReleaseCollectionViewCell: UICollectionViewCell {
 
     func prepareCell(with movie: Movie) {
         titleLabel.text = movie.title
-        if let imageName = movie.image,
-            let image = UIImage(named: imageName) {
+        if let imageData = movie.image,
+            let image = UIImage(data: imageData) {
             posterImageView.image = image
         }
     }

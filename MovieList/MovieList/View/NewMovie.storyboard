@@ -130,17 +130,25 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyn-2b-4gu">
-                                                <rect key="frame" x="8" y="764" width="351" height="30"/>
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyn-2b-4gu">
+                                                <rect key="frame" x="8" y="764" width="324" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-cM-Tzv">
+                                                <rect key="frame" x="337" y="768" width="22" height="22"/>
+                                                <connections>
+                                                    <segue destination="99G-EJ-Uf6" kind="show" id="AXq-cC-vEi"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ac9-I2-SXk" firstAttribute="centerY" secondItem="ChY-Wo-e0v" secondAttribute="centerY" id="2Fi-6p-5br"/>
+                                            <constraint firstItem="AnD-cM-Tzv" firstAttribute="trailing" secondItem="swj-QU-v1c" secondAttribute="trailing" id="3WD-TW-DVe"/>
                                             <constraint firstItem="aSu-JB-CBj" firstAttribute="centerY" secondItem="fp3-GC-7Oj" secondAttribute="centerY" id="3ys-6s-uBg"/>
                                             <constraint firstItem="swj-QU-v1c" firstAttribute="leading" secondItem="XQV-Zt-B5C" secondAttribute="leading" id="44l-VP-55a"/>
+                                            <constraint firstItem="AnD-cM-Tzv" firstAttribute="leading" secondItem="cyn-2b-4gu" secondAttribute="trailing" constant="5" id="5H0-mt-OK8"/>
                                             <constraint firstItem="tLS-Bc-v9a" firstAttribute="leading" secondItem="aSu-JB-CBj" secondAttribute="leading" id="5Kx-37-hpA"/>
                                             <constraint firstItem="kKa-Or-175" firstAttribute="leading" secondItem="umq-tl-Wdo" secondAttribute="leading" id="7S3-za-yQi"/>
                                             <constraint firstItem="cyn-2b-4gu" firstAttribute="top" secondItem="ChY-Wo-e0v" secondAttribute="bottom" constant="5" id="7is-4L-HYz"/>
@@ -167,9 +175,9 @@
                                             <constraint firstItem="6OH-7P-9m7" firstAttribute="trailing" secondItem="vdl-bh-rxU" secondAttribute="trailing" id="kkY-jr-se8"/>
                                             <constraint firstItem="XQV-Zt-B5C" firstAttribute="top" secondItem="umq-tl-Wdo" secondAttribute="bottom" constant="5" id="kxr-Fl-FG8"/>
                                             <constraint firstItem="ePx-Y0-d61" firstAttribute="bottom" secondItem="aSu-JB-CBj" secondAttribute="top" constant="-20" id="mDI-wH-cBY"/>
-                                            <constraint firstItem="cyn-2b-4gu" firstAttribute="trailing" secondItem="swj-QU-v1c" secondAttribute="trailing" id="mfo-4b-1o4"/>
                                             <constraint firstItem="swj-QU-v1c" firstAttribute="trailing" secondItem="n3P-wd-W0P" secondAttribute="trailing" id="qgU-EU-0UW"/>
                                             <constraint firstItem="ChY-Wo-e0v" firstAttribute="leading" secondItem="kKa-Or-175" secondAttribute="leading" id="tWu-eE-1fr"/>
+                                            <constraint firstItem="AnD-cM-Tzv" firstAttribute="centerY" secondItem="cyn-2b-4gu" secondAttribute="centerY" id="tzc-Cv-c4G"/>
                                             <constraint firstItem="tLS-Bc-v9a" firstAttribute="top" secondItem="vdl-bh-rxU" secondAttribute="bottom" constant="20" id="w1S-0e-3h1"/>
                                             <constraint firstAttribute="bottom" secondItem="cyn-2b-4gu" secondAttribute="bottom" constant="92" id="xDl-oS-seO"/>
                                             <constraint firstItem="ePx-Y0-d61" firstAttribute="leading" secondItem="Os5-EZ-gZQ" secondAttribute="leading" constant="16" id="yHz-Vf-42E"/>
@@ -229,6 +237,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrT-lE-duN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="424.80000000000001" y="106.14692653673164"/>
+        </scene>
+        <!--NewCategory-->
+        <scene sceneID="whw-VE-qar">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewCategory" id="99G-EJ-Uf6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MRP-lf-WTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102" y="106"/>
         </scene>
     </scenes>
     <resources>

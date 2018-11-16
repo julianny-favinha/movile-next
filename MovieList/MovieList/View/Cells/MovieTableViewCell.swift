@@ -38,14 +38,14 @@ class MovieTableViewCell: UITableViewCell {
         setTheme()
 
         titleLabel.text = movie.title
-        if let imageName = movie.image,
-            let image = UIImage(named: imageName + "small") {
+        if let imageData = movie.image,
+            let image = UIImage(data: imageData) {
             posterImageView.image = image
         } else {
             posterImageView.image = #imageLiteral(resourceName: "placeholder")
         }
-        durationLabel.text = movie.duration
-        ratingLabel.text = "⭐️ \(String(format: "%.1f", movie.rating ?? 0.0))"
+        durationLabel.text = movie.duration?.formatted
+        ratingLabel.text = "⭐️ \(String(format: "%.1f", movie.rating))"
     }
 
 }

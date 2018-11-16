@@ -73,18 +73,21 @@ class MovieDetailViewController: UIViewController {
     fileprivate func configView() {
         titleLabel.text = movie?.title
 
-        if let imageName = movie?.image,
-            let image = UIImage(named: imageName) {
+        if let imageData = movie?.image,
+            let image = UIImage(data: imageData) {
             posterImageView.image = image
         }
 
-        durationLabel.text = movie?.duration
+        durationLabel.text = movie?.duration?.formatted
 
         ratingLabel.text = "⭐️ \(String(format: "%.1f", movie?.rating ?? 0.0))"
 
-        if let categories = movie?.categories {
-            categoriesLabel.text = String(categories.reduce("", { result, next in
-                result + next + ", "
+        if let categories = movie?.categories, let arrayCategories = Array(categories) as? [Category] {
+            categoriesLabel.text = String(arrayCategories.reduce("", { result, next in
+                if let name = next.name {
+                    return result + name + ", "
+                }
+                return result
             }).dropLast(2))
         }
 

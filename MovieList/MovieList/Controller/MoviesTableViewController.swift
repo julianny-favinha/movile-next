@@ -139,7 +139,7 @@ class MoviesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let movie = fetchedResultController?.object(at: indexPath) else { return }
         selectedMovie = movie
-        performSegue(withIdentifier: "MovieDetailSegue", sender: self)
+        performSegue(withIdentifier: StoryboardSegue.Movies.movieDetailSegue.rawValue, sender: self)
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

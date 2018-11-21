@@ -112,11 +112,11 @@ class MovieDetailViewController: UIViewController {
     }
 
     @objc func editMovie() {
-        performSegue(withIdentifier: "NewMovieSegue", sender: self)
+        performSegue(withIdentifier: StoryboardSegue.MovieDetail.newMovieSegue.rawValue, sender: self)
     }
 
     @objc func notify() {
-        performSegue(withIdentifier: "NotificationSegue", sender: self)
+        performSegue(withIdentifier: StoryboardSegue.MovieDetail.notificationSegue.rawValue, sender: self)
     }
 
     // MARK: - IBActions

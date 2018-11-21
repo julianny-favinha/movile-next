@@ -7,4 +7,5 @@ target 'MovieList' do
 
   # Pods for MovieList
   pod 'SwiftLint'
+  pod 'SwiftGen'
 end

@@ -1,0 +1,18 @@
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "FNi-n7-caz"; */
+"FNi-n7-caz.title" = "Settings";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "UhJ-bx-Wck"; */
+"UhJ-bx-Wck.title" = "Settings";
+
+/* Class = "UISegmentedControl"; cov-gC-Vi3.segmentTitles[0] = "Light"; ObjectID = "cov-gC-Vi3"; */
+"cov-gC-Vi3.segmentTitles[0]" = "Light";
+
+/* Class = "UISegmentedControl"; cov-gC-Vi3.segmentTitles[1] = "Dark"; ObjectID = "cov-gC-Vi3"; */
+"cov-gC-Vi3.segmentTitles[1]" = "Dark";
+
+/* Class = "UILabel"; text = "Color"; ObjectID = "ibb-GY-IAh"; */
+"ibb-GY-IAh.text" = "Color";
+
+/* Class = "UILabel"; text = "Auto play"; ObjectID = "l9g-Q3-rno"; */
+"l9g-Q3-rno.text" = "Auto play";

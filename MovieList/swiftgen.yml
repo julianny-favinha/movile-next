@@ -1,0 +1,20 @@
+strings:
+  inputs: MovieList/Constants/Localizable.strings
+  outputs:
+    - templateName: structured-swift4
+      output: MovieList/Generated/Strings.swift
+
+
+plist:
+  inputs: MovieList/Info.plist
+  outputs:
+    templateName: runtime-swift4
+    output: MovieList/Generated/Plist.swift
+
+ib:
+  inputs: MovieList/View
+  outputs:
+    - templateName: scenes-swift4
+      output: MovieList/Generated/Storyboard Scenes.swift
+    - templateName: segues-swift4
+      output: MovieList/Generated/Storyboard Segues.swift

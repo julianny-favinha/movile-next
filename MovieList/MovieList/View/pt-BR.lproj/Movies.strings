@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Rating"; ObjectID = "6SZ-LV-0EA"; */
+"6SZ-LV-0EA.text" = "Rating";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "JIA-Eq-IYU"; */
+"JIA-Eq-IYU.text" = "Duration";
+
+/* Class = "UITabBarItem"; title = "Movies"; ObjectID = "ZIF-mw-Zrb"; */
+"ZIF-mw-Zrb.title" = "Movies";
+
+/* Class = "UINavigationItem"; title = "Movies"; ObjectID = "erQ-Bb-Z9r"; */
+"erQ-Bb-Z9r.title" = "Movies";
+
+/* Class = "UILabel"; text = "Lançamentos"; ObjectID = "fyo-hJ-KVa"; */
+"fyo-hJ-KVa.text" = "Lançamentos";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ioE-em-oyF"; */
+"ioE-em-oyF.text" = "Title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ixd-mM-OSD"; */
+"ixd-mM-OSD.text" = "Label";

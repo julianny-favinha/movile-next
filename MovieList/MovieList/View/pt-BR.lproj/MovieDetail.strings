@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "7uT-so-Tgo"; */
+"7uT-so-Tgo.text" = "Title";
+
+/* Class = "UILabel"; text = "Rating"; ObjectID = "Ceb-cg-jv8"; */
+"Ceb-cg-jv8.text" = "Rating";
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "JlK-nR-alS"; */
+"JlK-nR-alS.text" = "Categories";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "XW5-tB-quk"; */
+"XW5-tB-quk.text" = "Description";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "Y9f-no-Dv7"; */
+"Y9f-no-Dv7.text" = "Duration";

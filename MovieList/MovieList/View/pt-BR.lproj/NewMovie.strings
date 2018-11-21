@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "ChY-Wo-e0v"; */
+"ChY-Wo-e0v.text" = "Categories";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "aSu-JB-CBj"; */
+"aSu-JB-CBj.text" = "Title";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "kKa-Or-175"; */
+"kKa-Or-175.text" = "Description";
+
+/* Class = "UILabel"; text = "5.0"; ObjectID = "n3P-wd-W0P"; */
+"n3P-wd-W0P.text" = "5.0";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "tLS-Bc-v9a"; */
+"tLS-Bc-v9a.text" = "Duration";
+
+/* Class = "UILabel"; text = "Rating"; ObjectID = "umq-tl-Wdo"; */
+"umq-tl-Wdo.text" = "Rating";
+
+/* Class = "UINavigationItem"; title = "New movie"; ObjectID = "usc-4P-iPE"; */
+"usc-4P-iPE.title" = "New movie";

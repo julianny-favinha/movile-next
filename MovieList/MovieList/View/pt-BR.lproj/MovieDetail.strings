@@ -1,15 +1,15 @@
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "7uT-so-Tgo"; */
-"7uT-so-Tgo.text" = "Title";
+"7uT-so-Tgo.text" = "Título";
 
 /* Class = "UILabel"; text = "Rating"; ObjectID = "Ceb-cg-jv8"; */
-"Ceb-cg-jv8.text" = "Rating";
+"Ceb-cg-jv8.text" = "Avaliação";
 
 /* Class = "UILabel"; text = "Categories"; ObjectID = "JlK-nR-alS"; */
-"JlK-nR-alS.text" = "Categories";
+"JlK-nR-alS.text" = "Categorias";
 
 /* Class = "UILabel"; text = "Description"; ObjectID = "XW5-tB-quk"; */
-"XW5-tB-quk.text" = "Description";
+"XW5-tB-quk.text" = "Descrição";
 
 /* Class = "UILabel"; text = "Duration"; ObjectID = "Y9f-no-Dv7"; */
-"Y9f-no-Dv7.text" = "Duration";
+"Y9f-no-Dv7.text" = "Duração"

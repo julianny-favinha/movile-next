@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  MovieList
+
+  Created by Julianny Favinha on 11/21/18.
+  Copyright © 2018 MovileNext. All rights reserved.
+*/
+
+"ZERO_MOVIES" = "You don't have any movies yet. \nStart creating one in the + button above!";
+"ZERO_CATEGORIES" = "You don't have any categories yet. \nStart creating one in the + button above!";
+"EDIT_MOVIE" = "Edit movie";
+"WAIT" = "Wait!";
+"COMPLETE_FIELDS" = "Some fields must be completed";
+"OK" = "OK";
+"CANCEL" = "Cancel";
+"WATCH_NOW_THE_MOVIE" = "Watch now the movie";
+"SO_MUCH_FUN" = "So much fun!";
+"NEW_CATEGORY" = "New Category";
+"ENTER_CATEGORY_NAME" = "Enter a category name";
+"NAME" = "Name";
+"OOPS" = "Oops!";
+"EMPTY_FIELD" = "Field is empty.";
+"CATEGORY_EXISTS" = "Category already exists.";

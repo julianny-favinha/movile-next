@@ -72,25 +72,25 @@ class NewCategoryTableViewController: UITableViewController {
     }
 
     @objc func addCategory() {
-        let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
+        let alert = UIAlertController(title: L10n.newCategory, message: L10n.enterCategoryName, preferredStyle: .alert)
 
         alert.addTextField { (textField) in
-            textField.placeholder = "Name"
+            textField.placeholder = L10n.name
         }
 
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: L10n.ok, style: .default, handler: { [weak alert] (_) in
             guard let newName = alert?.textFields![0].text else { return }
 
             if newName.isEmpty {
-                let alert = UIAlertController(title: "Oops!", message: "Field is empty.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                let alert = UIAlertController(title: L10n.oops, message: L10n.emptyField, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: L10n.ok, style: .default, handler: { (_) in
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else if self.categoryExists(name: newName) {
-                let alert = UIAlertController(title: "Oops!",
-                                              message: "Category already exists.",
+                let alert = UIAlertController(title: L10n.oops,
+                                              message: L10n.categoryExists,
                                               preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                alert.addAction(UIAlertAction(title: L10n.ok, style: .default, handler: { (_) in
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -98,7 +98,7 @@ class NewCategoryTableViewController: UITableViewController {
             }
         }))
 
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+        alert.addAction(UIAlertAction(title: L10n.cancel, style: .cancel, handler: { (_) in
         }))
 
         self.present(alert, animated: true, completion: nil)
@@ -122,7 +122,7 @@ class NewCategoryTableViewController: UITableViewController {
     func tableViewEmptyMessage() {
         let rect: CGRect = CGRect(origin: CGPoint(x: 0, y: 0), size: self.view.bounds.size)
         let messageLabel: UILabel = UILabel(frame: rect)
-        messageLabel.text = "You don't have any categories yet. \nStart creating one in the + button above!"
+        messageLabel.text = L10n.zeroCategories
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
 
@@ -237,6 +237,7 @@ class NewCategoryTableViewController: UITableViewController {
 }
 
 extension NewCategoryTableViewController: NSFetchedResultsControllerDelegate {
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange anObject: Any,
                     at indexPath: IndexPath?,
@@ -244,4 +245,5 @@ extension NewCategoryTableViewController: NSFetchedResultsControllerDelegate {
                     newIndexPath: IndexPath?) {
         tableView.reloadData()
     }
+
 }

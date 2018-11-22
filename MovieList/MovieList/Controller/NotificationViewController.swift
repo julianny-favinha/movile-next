@@ -61,9 +61,9 @@ class NotificationViewController: UIViewController {
         let idNotification = String(Date().timeIntervalSince1970)
 
         let content = UNMutableNotificationContent()
-        content.title = "Watch now the movie '\(movie?.title ?? "")'"
+        content.title = L10n.watchNowTheMovie + " '\(movie?.title ?? "")'"
 //        content.body = "So much \(movie?.categories?.first ?? "")!"
-        content.body = "So much fun!"
+        content.body = L10n.soMuchFun
         content.categoryIdentifier = "reminder"
 
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute],

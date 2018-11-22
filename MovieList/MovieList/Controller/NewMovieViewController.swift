@@ -63,7 +63,7 @@ class NewMovieViewController: UIViewController {
         configDatePicker()
 
         if let movie = movie {
-            navigationController?.title = "Edit movie"
+            navigationController?.title = L10n.editMovie
             configFields(movie: movie)
         }
 
@@ -217,9 +217,9 @@ class NewMovieViewController: UIViewController {
 
             self.dismiss(animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Wait!", message: "Some fields must be completed",
+            let alert = UIAlertController(title: L10n.wait, message: L10n.completeFields,
                                           preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            alert.addAction(UIAlertAction(title: L10n.ok, style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }

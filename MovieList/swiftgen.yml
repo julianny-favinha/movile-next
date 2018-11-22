@@ -1,5 +1,11 @@
 strings:
-  inputs: MovieList/Constants/Localizable.strings
+  inputs: MovieList/Constants/pt-BR.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift4
+      output: MovieList/Generated/Strings.swift
+
+strings:
+  inputs: MovieList/Constants/en.lproj/Localizable.strings
   outputs:
     - templateName: structured-swift4
       output: MovieList/Generated/Strings.swift

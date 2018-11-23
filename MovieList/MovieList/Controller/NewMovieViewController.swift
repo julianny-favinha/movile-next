@@ -150,7 +150,6 @@ class NewMovieViewController: UIViewController {
 
         self.descriptionTextView.text = movie.summary
 
-        // TODO: put in text field the categories
         if let categories = movie.categories {
             categoriesTextField.text = String(categories.reduce("", { result, next in
                 if let nextString = next as? String {
@@ -204,7 +203,6 @@ class NewMovieViewController: UIViewController {
 
         if missingCategoriesImageView.isHidden &&
             missingTitleImageView.isHidden {
-            // TODO: save in coredata
             movie?.title = title
             movie?.categories = NSSet(array: categoriesChosen)
             movie?.duration = datePicker.date

@@ -46,6 +46,8 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Settings"
 
     internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Settings.self)
+
+    internal static let settingsViewController = SceneType<MovieList.SettingsViewController>(storyboard: Settings.self, identifier: "SettingsViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

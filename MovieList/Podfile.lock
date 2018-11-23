@@ -1,20 +1,28 @@
 PODS:
+  - iOSSnapshotTestCase (4.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 4.0.0)
+  - iOSSnapshotTestCase/Core (4.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (4.0.0):
+    - iOSSnapshotTestCase/Core
   - SwiftGen (6.0.2)
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
+  - iOSSnapshotTestCase
   - SwiftGen
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - iOSSnapshotTestCase
     - SwiftGen
     - SwiftLint
 
 SPEC CHECKSUMS:
+  iOSSnapshotTestCase: 711379b19f69a22c131527df862352c877c2773c
   SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: ff77bf2f04bca0a4136933fbf584089266dfec8c
+PODFILE CHECKSUM: 20b4601fa221b39c95ddaa745bd433f7afc20340
 
 COCOAPODS: 1.5.3

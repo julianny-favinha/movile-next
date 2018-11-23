@@ -107,6 +107,9 @@ class MoviesTableViewController: UITableViewController {
         let messageLabel: UILabel = UILabel(frame: rect)
         messageLabel.text = L10n.zeroMovies
         messageLabel.textAlignment = .center
+        let colorNumber = UserDefaultsManager.colorNumber()
+        let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
+        messageLabel.textColor = theme.labelColor
         messageLabel.numberOfLines = 0
 
         tableView.backgroundView = messageLabel

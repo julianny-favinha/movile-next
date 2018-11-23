@@ -19,7 +19,7 @@
                         <view key="tableFooterView" contentMode="scaleToFill" id="G9b-X1-9Aa">
                             <rect key="frame" x="0.0" y="357" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieTableCell" rowHeight="149" id="2VF-8G-jcN" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
@@ -85,7 +85,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lançamentos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyo-hJ-KVa">
-                                            <rect key="frame" x="16" y="3" width="128" height="23"/>
+                                            <rect key="frame" x="16" y="3" width="354" height="23"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -159,6 +159,7 @@
                                         <constraint firstItem="fyo-hJ-KVa" firstAttribute="leading" secondItem="yJV-WR-jNE" secondAttribute="leading" constant="16" id="8ZG-Fl-gvz"/>
                                         <constraint firstItem="axg-OF-NAi" firstAttribute="leading" secondItem="yJV-WR-jNE" secondAttribute="leadingMargin" constant="-16" id="MQi-Nk-jr5"/>
                                         <constraint firstItem="axg-OF-NAi" firstAttribute="top" secondItem="fyo-hJ-KVa" secondAttribute="bottom" constant="5" id="Qxq-cm-IHC"/>
+                                        <constraint firstAttribute="trailing" secondItem="fyo-hJ-KVa" secondAttribute="trailing" constant="5" id="ZHN-tj-AY5"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="axg-OF-NAi" secondAttribute="bottom" id="gwp-Kg-ZSs"/>
                                     </constraints>
                                 </tableViewCellContentView>

@@ -19,7 +19,6 @@
 		B1261B48219F1D2700DDCE7B /* Schema.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1261B46219F1D2700DDCE7B /* Schema.xcdatamodeld */; };
 		B1261B4B219F283100DDCE7B /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1261B4A219F283100DDCE7B /* UIViewController+CoreData.swift */; };
 		B12732D121A5E5ED00949B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12732D321A5E5ED00949B28 /* Main.storyboard */; };
-		B12732D621A5E5F300949B28 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12732D821A5E5F300949B28 /* Settings.storyboard */; };
 		B12732DB21A5E5F800949B28 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12732DD21A5E5F800949B28 /* Movies.storyboard */; };
 		B12732E021A5E64200949B28 /* NewMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12732E221A5E64200949B28 /* NewMovie.storyboard */; };
 		B12732E521A5E64F00949B28 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B12732E721A5E64F00949B28 /* MovieDetail.storyboard */; };
@@ -37,6 +36,7 @@
 		B16AB6DA2195EAFC00C44D24 /* ReleaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AB6D92195EAFC00C44D24 /* ReleaseCollectionViewCell.swift */; };
 		B175FD6F2193489D00B8224A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175FD6E2193489D00B8224A /* ShadowView.swift */; };
 		B175FD71219358CD00B8224A /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175FD70219358CD00B8224A /* MovieDetailViewController.swift */; };
+		B18BD9E721A8967B007ED95A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BD9E621A8967B007ED95A /* MainViewController.swift */; };
 		B1AB03D621932F2200D1B5E4 /* NewMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB03D521932F2200D1B5E4 /* NewMovieViewController.swift */; };
 		B1D688812190B7E6004FFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D688802190B7E6004FFD10 /* AppDelegate.swift */; };
 		B1D688882190B7E8004FFD10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D688872190B7E8004FFD10 /* Assets.xcassets */; };
@@ -44,6 +44,7 @@
 		B1D72A222192326F0094BB0A /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D72A212192326F0094BB0A /* MoviesTableViewController.swift */; };
 		B1D72A25219232DB0094BB0A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D72A24219232DB0094BB0A /* MovieTableViewCell.swift */; };
 		B1E6BBC62197A69400A6AD16 /* DateFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6BBC52197A69400A6AD16 /* DateFomatter.swift */; };
+		B1F1924721A88BFE00C01299 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F1924621A88BFE00C01299 /* SettingsView.swift */; };
 		CA52B14E6001E0FA9F56C2B7 /* Pods_MovieListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3013F01B590017C4FB108A09 /* Pods_MovieListUITests.framework */; };
 		EDCFD090EB83C8D81765BC1F /* Pods_MovieListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE775E71B07E073C3DEBB64 /* Pods_MovieListTests.framework */; };
 /* End PBXBuildFile section */
@@ -86,8 +87,6 @@
 		B12732D021A5E5E600949B28 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		B12732D221A5E5ED00949B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B12732D521A5E5EF00949B28 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		B12732D721A5E5F300949B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		B12732DA21A5E5F500949B28 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Settings.strings"; sourceTree = "<group>"; };
 		B12732DC21A5E5F800949B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Movies.storyboard; sourceTree = "<group>"; };
 		B12732DF21A5E5FC00949B28 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Movies.strings"; sourceTree = "<group>"; };
 		B12732E121A5E64200949B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewMovie.storyboard; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		B16AB6D92195EAFC00C44D24 /* ReleaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		B175FD6E2193489D00B8224A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B175FD70219358CD00B8224A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		B18BD9E621A8967B007ED95A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B1AB03D521932F2200D1B5E4 /* NewMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMovieViewController.swift; sourceTree = "<group>"; };
 		B1D6887D2190B7E6004FFD10 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D688802190B7E6004FFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +124,7 @@
 		B1D72A212192326F0094BB0A /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		B1D72A24219232DB0094BB0A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		B1E6BBC52197A69400A6AD16 /* DateFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFomatter.swift; sourceTree = "<group>"; };
+		B1F1924621A88BFE00C01299 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BE82A7A481DDAE7BD7CDE5D4 /* Pods-MovieListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieListUITests/Pods-MovieListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FF13D524188665511840D471 /* Pods-MovieListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieListTests/Pods-MovieListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,12 +308,12 @@
 				B175FD6D2193488A00B8224A /* Custom */,
 				B1D72A23219232CC0094BB0A /* Cells */,
 				B12732D321A5E5ED00949B28 /* Main.storyboard */,
-				B12732D821A5E5F300949B28 /* Settings.storyboard */,
 				B12732DD21A5E5F800949B28 /* Movies.storyboard */,
 				B12732E221A5E64200949B28 /* NewMovie.storyboard */,
 				B12732E721A5E64F00949B28 /* MovieDetail.storyboard */,
 				B12732EC21A5E65B00949B28 /* Notification.storyboard */,
 				B12732F121A5E66400949B28 /* NewCategory.storyboard */,
+				B1F1924621A88BFE00C01299 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,6 +328,7 @@
 				B124C2392199CF580052D77F /* SettingsViewController.swift */,
 				B1261B41219F097800DDCE7B /* NotificationViewController.swift */,
 				B11BAD76219F32F40007720C /* NewCategoryTableViewController.swift */,
+				B18BD9E621A8967B007ED95A /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -401,6 +403,7 @@
 				B1D6887A2190B7E6004FFD10 /* Frameworks */,
 				B1D6887B2190B7E6004FFD10 /* Resources */,
 				B1D72A1121922E170094BB0A /* SwiftLint */,
+				0FE6AB802CEB7EAFC07E25BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -484,13 +487,34 @@
 				B12732DB21A5E5F800949B28 /* Movies.storyboard in Resources */,
 				B12732E521A5E64F00949B28 /* MovieDetail.storyboard in Resources */,
 				B12732E021A5E64200949B28 /* NewMovie.storyboard in Resources */,
-				B12732D621A5E5F300949B28 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0FE6AB802CEB7EAFC07E25BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MovieList/Pods-MovieList-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieList/Pods-MovieList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		121549ACA802FF499B8C9F6A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -647,6 +671,7 @@
 				B12F0D9021A6261D002446FD /* Storyboard Scenes.swift in Sources */,
 				B1261B4B219F283100DDCE7B /* UIViewController+CoreData.swift in Sources */,
 				B16AB6DA2195EAFC00C44D24 /* ReleaseCollectionViewCell.swift in Sources */,
+				B1F1924721A88BFE00C01299 /* SettingsView.swift in Sources */,
 				B1D688812190B7E6004FFD10 /* AppDelegate.swift in Sources */,
 				B175FD71219358CD00B8224A /* MovieDetailViewController.swift in Sources */,
 				B12F0D9221A6262C002446FD /* Storyboard Segues.swift in Sources */,
@@ -659,6 +684,7 @@
 				B11BAD77219F32F40007720C /* NewCategoryTableViewController.swift in Sources */,
 				B1261B42219F097800DDCE7B /* NotificationViewController.swift in Sources */,
 				B124C2382199CCC80052D77F /* UserDefaultsManager.swift in Sources */,
+				B18BD9E721A8967B007ED95A /* MainViewController.swift in Sources */,
 				B1E6BBC62197A69400A6AD16 /* DateFomatter.swift in Sources */,
 				B124C23F2199D7220052D77F /* LightTheme.swift in Sources */,
 			);
@@ -687,15 +713,6 @@
 				B12732D521A5E5EF00949B28 /* pt-BR */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B12732D821A5E5F300949B28 /* Settings.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B12732D721A5E5F300949B28 /* Base */,
-				B12732DA21A5E5F500949B28 /* pt-BR */,
-			);
-			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		B12732DD21A5E5F800949B28 /* Movies.storyboard */ = {

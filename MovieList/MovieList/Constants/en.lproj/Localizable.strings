@@ -21,3 +21,9 @@
 "OOPS" = "Oops!";
 "EMPTY_FIELD" = "Field is empty.";
 "CATEGORY_EXISTS" = "Category already exists.";
+"AUTO_PLAY" = "Auto play";
+"COLOR" = "Color";
+"LIGHT" = "Light";
+"DARK" = "Dark";
+"SETTINGS" = "Settings";
+"MOVIES" = "Movies";

@@ -21,3 +21,9 @@
 "OOPS" = "Oops!";
 "EMPTY_FIELD" = "O campo está vazio.";
 "CATEGORY_EXISTS" = "A categoria já existe.";
+"AUTO_PLAY" = "Auto play";
+"COLOR" = "Cor";
+"LIGHT" = "Claro";
+"DARK" = "Escuro";
+"SETTINGS" = "Configurações";
+"MOVIES" = "Filmes";

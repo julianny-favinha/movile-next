@@ -15,7 +15,7 @@ internal enum StoryboardScene {
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
 
-    internal static let initialScene = InitialSceneType<UIKit.UITabBarController>(storyboard: Main.self)
+    internal static let initialScene = InitialSceneType<MovieList.MainViewController>(storyboard: Main.self)
   }
   internal enum MovieDetail: StoryboardType {
     internal static let storyboardName = "MovieDetail"
@@ -26,6 +26,10 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Movies"
 
     internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Movies.self)
+
+    internal static let moviesNavigationController = SceneType<UIKit.UINavigationController>(storyboard: Movies.self, identifier: "MoviesNavigationController")
+
+    internal static let moviesTableViewController = SceneType<MovieList.MoviesTableViewController>(storyboard: Movies.self, identifier: "MoviesTableViewController")
   }
   internal enum NewCategory: StoryboardType {
     internal static let storyboardName = "NewCategory"
@@ -41,13 +45,6 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Notification"
 
     internal static let initialScene = InitialSceneType<MovieList.NotificationViewController>(storyboard: Notification.self)
-  }
-  internal enum Settings: StoryboardType {
-    internal static let storyboardName = "Settings"
-
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Settings.self)
-
-    internal static let settingsViewController = SceneType<MovieList.SettingsViewController>(storyboard: Settings.self, identifier: "SettingsViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

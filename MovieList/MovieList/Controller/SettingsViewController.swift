@@ -12,17 +12,23 @@ class SettingsViewController: UIViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var autoPlayLabel: UILabel!
-    @IBOutlet weak var autoPlaySwitch: UISwitch!
-    @IBOutlet weak var colorLabel: UILabel!
-    @IBOutlet weak var colorSegmentedControl: UISegmentedControl!
-
     // MARK: - Variables
+
+    var navigationBar: UINavigationBar = UINavigationBar()
+    var verticalStackView: UIStackView = UIStackView()
+    var horizontalAutoPlayStackView: UIStackView = UIStackView()
+    var autoPlayLabel: UILabel! = UILabel()
+    var autoPlaySwitch: UISwitch! = UISwitch()
+    var horizontalColorStackView: UIStackView = UIStackView()
+    var colorLabel: UILabel! = UILabel()
+    var colorSegmentedControl: UISegmentedControl! = UISegmentedControl()
 
     // MARK: - Super Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupInitialState()
 
         autoPlaySwitch.isOn = UserDefaultsManager.autoPlay()
         colorSegmentedControl.selectedSegmentIndex = UserDefaultsManager.colorNumber()
@@ -39,17 +45,6 @@ class SettingsViewController: UIViewController {
     }
 
     // MARK: - Methods
-
-    @objc func setTheme() {
-        let colorNumber = UserDefaultsManager.colorNumber()
-        let theme: Theme = colorNumber == 0 ? LightTheme() : DarkTheme()
-
-        self.view.backgroundColor = theme.backgroundColor
-        self.autoPlayLabel.textColor = theme.labelColor
-        self.colorLabel.textColor = theme.labelColor
-        self.navigationController?.navigationBar.barStyle = theme.barStyle
-        self.tabBarController?.tabBar.barStyle = theme.barStyle
-    }
 
     // MARK: - IBActions
 

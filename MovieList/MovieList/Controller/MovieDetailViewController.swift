@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class MovieDetailViewController: UIViewController {
 
@@ -15,13 +16,15 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var playVideoButton: UIButton!
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
 
     // MARK: - Variables
 
     var movie: Movie?
+    var player: AVPlayer!
 
     // MARK: - Super Methods
 
@@ -45,10 +48,16 @@ class MovieDetailViewController: UIViewController {
                                                selector: #selector(setTheme),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
+
+        configVideoView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setTheme()
+
+        if UserDefaultsManager.autoPlay() {
+            player?.play()
+        }
     }
 
     deinit {
@@ -70,13 +79,37 @@ class MovieDetailViewController: UIViewController {
 
     // MARK: - Methods
 
+    fileprivate func configVideoView() {
+        guard let title = movie?.title else {
+            self.videoView.isHidden = true
+            self.playVideoButton.isHidden = true
+            return
+        }
+
+        REST.load(movieName: title) { (url, error) in
+            if error != nil {
+                print(error!)
+                DispatchQueue.main.async {
+                    self.videoView.isHidden = true
+                    self.playVideoButton.isHidden = true
+                }
+            } else {
+                guard let url = url else {
+                    self.videoView.isHidden = true
+                    self.playVideoButton.isHidden = true
+                    return
+                }
+                self.player = AVPlayer(url: url)
+                let layer: AVPlayerLayer = AVPlayerLayer(player: self.player)
+                layer.frame = self.videoView.bounds
+                layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                self.videoView.layer.addSublayer(layer)
+            }
+        }
+    }
+
     fileprivate func configView() {
         titleLabel.text = movie?.title
-
-        if let imageData = movie?.image,
-            let image = UIImage(data: imageData) {
-            posterImageView.image = image
-        }
 
         durationLabel.text = movie?.duration?.formatted
 
@@ -120,4 +153,9 @@ class MovieDetailViewController: UIViewController {
     }
 
     // MARK: - IBActions
+
+    @IBAction func playVideo(_ sender: Any) {
+        playVideoButton.isHidden = true
+        player?.play()
+    }
 }

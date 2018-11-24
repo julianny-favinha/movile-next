@@ -38,6 +38,8 @@
 		B175FD71219358CD00B8224A /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175FD70219358CD00B8224A /* MovieDetailViewController.swift */; };
 		B18BD9E721A8967B007ED95A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BD9E621A8967B007ED95A /* MainViewController.swift */; };
 		B1AB03D621932F2200D1B5E4 /* NewMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB03D521932F2200D1B5E4 /* NewMovieViewController.swift */; };
+		B1B4984B21A8C5D7009B41B2 /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B4984A21A8C5D7009B41B2 /* REST.swift */; };
+		B1B4984E21A8CAD4009B41B2 /* ItunesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B4984D21A8CAD4009B41B2 /* ItunesApi.swift */; };
 		B1D688812190B7E6004FFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D688802190B7E6004FFD10 /* AppDelegate.swift */; };
 		B1D688882190B7E8004FFD10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D688872190B7E8004FFD10 /* Assets.xcassets */; };
 		B1D6888B2190B7E8004FFD10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D688892190B7E8004FFD10 /* LaunchScreen.storyboard */; };
@@ -116,6 +118,8 @@
 		B175FD70219358CD00B8224A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		B18BD9E621A8967B007ED95A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B1AB03D521932F2200D1B5E4 /* NewMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMovieViewController.swift; sourceTree = "<group>"; };
+		B1B4984A21A8C5D7009B41B2 /* REST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
+		B1B4984D21A8CAD4009B41B2 /* ItunesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesApi.swift; sourceTree = "<group>"; };
 		B1D6887D2190B7E6004FFD10 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D688802190B7E6004FFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D688872190B7E8004FFD10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				B16AB6D42195E6CD00C44D24 /* MoviesServices.swift */,
+				B1B4984A21A8C5D7009B41B2 /* REST.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -259,6 +264,14 @@
 				B175FD6E2193489D00B8224A /* ShadowView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		B1B4984C21A8CAC2009B41B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1B4984D21A8CAD4009B41B2 /* ItunesApi.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B1D688742190B7E6004FFD10 = {
@@ -286,6 +299,7 @@
 		B1D6887F2190B7E6004FFD10 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				B1B4984C21A8CAC2009B41B2 /* Model */,
 				B12F0D8A21A623CC002446FD /* Generated */,
 				B12F0D8721A6207F002446FD /* Constants */,
 				B124C22F2198551A0052D77F /* Persistent */,
@@ -673,12 +687,14 @@
 				B16AB6DA2195EAFC00C44D24 /* ReleaseCollectionViewCell.swift in Sources */,
 				B1F1924721A88BFE00C01299 /* SettingsView.swift in Sources */,
 				B1D688812190B7E6004FFD10 /* AppDelegate.swift in Sources */,
+				B1B4984E21A8CAD4009B41B2 /* ItunesApi.swift in Sources */,
 				B175FD71219358CD00B8224A /* MovieDetailViewController.swift in Sources */,
 				B12F0D9221A6262C002446FD /* Storyboard Segues.swift in Sources */,
 				B1D72A25219232DB0094BB0A /* MovieTableViewCell.swift in Sources */,
 				B124C23A2199CF580052D77F /* SettingsViewController.swift in Sources */,
 				B124C2432199D7310052D77F /* Theme.swift in Sources */,
 				B1261B48219F1D2700DDCE7B /* Schema.xcdatamodeld in Sources */,
+				B1B4984B21A8C5D7009B41B2 /* REST.swift in Sources */,
 				B16AB6D52195E6CD00C44D24 /* MoviesServices.swift in Sources */,
 				B124C2412199D72B0052D77F /* DarkTheme.swift in Sources */,
 				B11BAD77219F32F40007720C /* NewCategoryTableViewController.swift in Sources */,

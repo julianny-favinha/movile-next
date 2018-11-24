@@ -25,6 +25,7 @@ class MovieDetailViewController: UIViewController {
 
     var movie: Movie?
     var player: AVPlayer!
+    let audioSession: AVAudioSession = AVAudioSession.sharedInstance()
 
     // MARK: - Super Methods
 
@@ -56,7 +57,7 @@ class MovieDetailViewController: UIViewController {
         setTheme()
 
         if UserDefaultsManager.autoPlay() {
-            player?.play()
+            play()
         }
     }
 
@@ -152,10 +153,23 @@ class MovieDetailViewController: UIViewController {
         performSegue(withIdentifier: StoryboardSegue.MovieDetail.notificationSegue.rawValue, sender: self)
     }
 
+    func play() {
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.playback,
+                                         mode: .spokenAudio,
+                                         options: .duckOthers)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+
+            player?.play()
+        } catch let error as NSError {
+            print("LOG: audioSession error: \(error.localizedDescription)")
+        }
+    }
+
     // MARK: - IBActions
 
     @IBAction func playVideo(_ sender: Any) {
         playVideoButton.isHidden = true
-        player?.play()
+        play()
     }
 }

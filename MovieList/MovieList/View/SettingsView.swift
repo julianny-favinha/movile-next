@@ -87,7 +87,9 @@ extension SettingsViewController {
         self.verticalStackView.addArrangedSubview(self.horizontalColorStackView)
         self.horizontalColorStackView.addArrangedSubview(self.colorLabel)
         self.horizontalColorStackView.addArrangedSubview(self.colorSegmentedControl)
+    }
 
+    override func viewDidLayoutSubviews() {
         setupStackView()
     }
 
@@ -95,7 +97,7 @@ extension SettingsViewController {
         constrain(verticalStackView) { view in
             guard let superview = view.superview else { return }
             guard let navigationBar = self.navigationController?.navigationBar else { return }
-            view.top == superview.top + navigationBar.frame.height + 10
+            view.top == superview.top + navigationBar.bounds.height + 100
             view.leading == superview.leading + 16
             view.trailing == superview.trailing - 16
             view.centerX == superview.centerX
